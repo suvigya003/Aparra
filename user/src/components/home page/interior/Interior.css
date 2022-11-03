@@ -1,0 +1,24 @@
+.pic{
+    /* width: '5px';
+    height: '5px';
+    border: 1px; */
+    /* border-color: red; */
+    background-color: 'black';
+}
+
+.pic img{
+    max-width: '50px' !important; 
+    max-height: '50px '  !important;
+}
+
+.about::-webkit-scrollbar{
+    display: none;
+}
+
+.modall::-webkit-scrollbar{
+    display: none;
+}
+
+/* .bannerAnimation{
+    transform: scale(2, 2);
+} */
