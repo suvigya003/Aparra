@@ -1,27 +1,20 @@
-const db = require('../models/admin');
+const db = require('../../models');
 const Category = db.category;
 
 exports.create = async (req, res) => {
-    console.log(req.body);
-    Category.create(req.body).then(data => {
-        res.send(
-            {
-                message: "Icons added successfully",
-            }
-        );
-    }).catch(err => {
-        res.send(err);
-        console.log(err);
-    });
-}
+    try{
+        const category = await Category.create(req.body);
+        res.send(category);
+    }catch(error){
+        console.log(error);
+    }
+};
 
 exports.findAll = async (req, res) => {
-    Category.findAll().then(data => {
-        console.log(data);
-        res.send(data);
-    }).catch(err => {
-        res.send(err);
-        console.log(err);
+    try{
+        const category = await Category.findAll();
+        res.send(category);
+    }catch(error){
+        console.log(error);
     }
-    );
 }

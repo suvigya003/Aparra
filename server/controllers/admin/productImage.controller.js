@@ -1,27 +1,20 @@
-const db = require('../models/admin');
+const db = require('../../models');
 const ProductImage = db.productImage;
 
 exports.create = async (req, res) => {
-    console.log(req.body);
-    ProductImage.create(req.body).then(data => {
-        res.send(
-            {
-                message: "Question added successfully",
-            }
-        );
-    }).catch(err => {
-        res.send(err);
-        console.log(err);
-    });
-}
+    try{
+        const productImage = await ProductImage.create(req.body);
+        res.send(productImage);
+    }catch(error){
+        console.log(error);
+    }
+};
 
 exports.findAll = async (req, res) => {
-    ProductImage.findAll().then(data => {
-        console.log(data);
-        res.send(data);
-    }).catch(err => {
-        res.send(err);
-        console.log(err);
+    try{
+        const productImage = await ProductImage.findAll();
+        res.send(productImage);
+    }catch(error){
+        console.log(error);
     }
-    );
 }

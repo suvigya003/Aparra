@@ -1,27 +1,20 @@
-const db = require('../models/admin');
+const db = require('../../models');
 const Banner = db.banner;
 
 exports.create = async (req, res) => {
-    console.log(req.body);
-    Banner.create(req.body).then(data => {
-        res.send(
-            {
-                message: "Image added successfully",
-            }
-        );
-    }).catch(err => {
-        res.send(err);
-        console.log(err);
-    });
-}
+    try{
+        const banner = await Banner.create(req.body);
+        res.send(banner);
+    }catch(error){
+        console.log(error);
+    }
+};
 
 exports.findAll = async (req, res) => {
-    Banner.findAll().then(data => {
-        console.log(data);
-        res.send(data);
-    }).catch(err => {
-        res.send(err);
-        console.log(err);
+    try{
+        const banners = await Banner.findAll();
+        res.send(banners);
+    }catch(error){
+        console.log(error);
     }
-    );
 }

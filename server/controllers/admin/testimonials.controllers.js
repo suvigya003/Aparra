@@ -1,27 +1,20 @@
-const db = require('../models/admin');
+const db = require('../../models');
 const Testimonials = db.testimonials;
 
 exports.create = async (req, res) => {
-    console.log(req.body);
-    Testimonials.create(req.body).then(data => {
-        res.send(
-            {
-                message: "Question added successfully",
-            }
-        );
-    }).catch(err => {
-        res.send(err);
-        console.log(err);
-    });
-}
+    try{
+        const testimonials = await Testimonials.create(req.body);
+        res.send(testimonials);
+    }catch(error){
+        console.log(error);
+    }
+};
 
 exports.findAll = async (req, res) => {
-    Testimonials.findAll().then(data => {
-        console.log(data);
-        res.send(data);
-    }).catch(err => {
-        res.send(err);
-        console.log(err);
+    try{
+        const testimonials = await Testimonials.findAll();
+        res.send(testimonials);
+    }catch(error){
+        console.log(error);
     }
-    );
 }
