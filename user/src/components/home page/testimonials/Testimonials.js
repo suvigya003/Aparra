@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { theme } from "../../../theme";
+import './Testimonials.css';
 import YouTube from "react-youtube";
-
+import PlayCircleOutlineOutlinedIcon from '@mui/icons-material/PlayCircleOutlineOutlined';
 import TestimonialsMenu1 from "./TestimonialsMenu1";
 import TestimonialsMenu2 from "./TestimonialsMenu2";
 import TestimonialsMenu3 from "./TestimonialsMenu3";
@@ -22,6 +23,7 @@ import {
   Typography,
   TableContainer,
   TablePagination,
+  Modal
 } from "@mui/material";
 import TextField from "@mui/material/TextField";
 import { useTheme } from "@mui/material/styles";
@@ -33,20 +35,40 @@ import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import SwipeableViews from "react-swipeable-views";
 import { autoPlay } from "react-swipeable-views-utils";
+
+
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  // width: '80vw',
+  height:500,
+  bgcolor: 'background.paper',
+  borderRadius:'8px',
+  // border: '2px solid #000',
+  boxShadow: 24,
+  p: 0,
+};
+
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 var getYouTubeID = require("get-youtube-id");
 
 const Testimonials = () => {
-  const [id, setId] = useState("");
+  const [id, setId] = useState("https://youtu.be/JMUJtgzX2ew");
   const [items1, setItems1] = useState(TestimonialsMenu1);
   const [items2, setItems2] = useState(TestimonialsMenu2);
   const [items3, setItems3] = useState(TestimonialsMenu3);
   // const theme = useTheme();
   const [activeStep, setActiveStep] = React.useState(0);
 
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   const handleChange = (e) => {
     console.log(getYouTubeID(e.target.value));
-    setId(getYouTubeID(e.target.value));
+    setId(getYouTubeID(id));
   };
 
   const handleNext = () => {
@@ -64,10 +86,12 @@ const Testimonials = () => {
   const maxSteps = items1.length;
 
   const opts = {
-    height: "300vw",
-    width: "350vw",
+    // marginLeft:'10px',
+    borderRadius:'8px',
+    height: "500vw",
+    width: "950vw",
     playerVars: {
-      // https://developers.google.com/youtube/player_parameters
+      // size:'https://youtu.be/JMUJtgzX2ew',
       autoplay: 0,
     },
   };
@@ -79,6 +103,36 @@ const Testimonials = () => {
 
   return (
     <>
+
+<Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+          {/* <TextField
+                          id="outlined-multiline-flexible"
+                          label="Url"
+                          variant="outlined"
+                          fullWidth
+                          // multiline
+                          maxRows={4}
+                          type="text"
+                          name="id"
+                          value={icons.message}
+                          onChange={handleChange}
+                        /> */}
+                        <YouTube 
+                          videoId='JMUJtgzX2ew'
+                          opts={opts}
+                          sx={{
+                            borderRadius:'8px'
+                          }}
+                          // onReady={_onReady}
+                        /> 
+        </Box>
+      </Modal>
       <ThemeProvider theme={theme}>
         <Box>
           <Box mt={10}>
@@ -92,13 +146,15 @@ const Testimonials = () => {
             </Typography>
           </Box>
           <Box
-            ml={10}
-            // mr={10}
+            ml={12}
+            mr={10}
             mt={5}
             mb={2}
-            sx={{ display: "flex", justifyContent: "space-between" }}
+            // sx={{ display: "flex", justifyContent: "space-between" }}
           >
-            <AutoPlaySwipeableViews
+            <Grid container spacing={0} sx={{padding:0}}>
+              <Grid item xs={12} md={4}>
+              <AutoPlaySwipeableViews
               axis={theme.direction === "rtl" ? "x-reverse" : "x"}
               index={activeStep}
               onChangeIndex={handleStepChange}
@@ -109,14 +165,13 @@ const Testimonials = () => {
                   {Math.abs(activeStep - index) <= 2 ? (
                     <>
                       <Box
-                        // ml={8}
                         sx={{
                           display: "flex",
                           flexDirection: "column",
                           justifyContent: "space-between",
                         }}
                       >
-                        <TextField
+                        {/* <TextField
                           id="outlined-multiline-flexible"
                           label="Url"
                           variant="outlined"
@@ -125,7 +180,7 @@ const Testimonials = () => {
                           maxRows={4}
                           type="text"
                           name="id"
-                          // value={icons.message}
+                          value={icons.message}
                           onChange={handleChange}
                         />
                         <YouTube
@@ -134,9 +189,28 @@ const Testimonials = () => {
                           sx={{
                             borderRadius:'8px'
                           }}
-                          // onReady={this._onReady}
-                        />
-                        <Typography
+                        /> */}
+                        <Box >
+                        <Button onClick={handleOpen}>
+                          <Box mr={2} >
+<PlayCircleOutlineOutlinedIcon sx={{
+  fontSize:'40px',
+  position:'absolute',
+  color:'white',
+  top:175,
+  left:175,
+  zIndex:5
+}} />
+                            <img 
+                            height='350vw' 
+                            width='350vw' 
+                             sx={{objectFit:'cover',}} src={step.image} />
+                           
+                          </Box>
+                        </Button>
+                        </Box>
+                        
+                        <Typography ml={1}
                           sx={{
                             fontSize: theme.typography.body1,
                             fontWeight: 500,
@@ -144,7 +218,7 @@ const Testimonials = () => {
                         >
                           {step.name}
                         </Typography>
-                        <Typography
+                        <Typography ml={1}
                           sx={{
                             fontSize: theme.typography.subtitle2,
                             color: "grey",
@@ -152,7 +226,7 @@ const Testimonials = () => {
                         >
                           {step.size}
                         </Typography>
-                        <Box
+                        <Box ml={1}
                           mt={2}
                           sx={{
                             maxWidth: "25vw",
@@ -172,7 +246,9 @@ const Testimonials = () => {
                 </div>
               ))}
             </AutoPlaySwipeableViews>
-            <AutoPlaySwipeableViews
+              </Grid>
+              <Grid item xs={12} md={4}>
+              <AutoPlaySwipeableViews
               axis={theme.direction === "rtl" ? "x-reverse" : "x"}
               index={activeStep}
               onChangeIndex={handleStepChange}
@@ -189,27 +265,25 @@ const Testimonials = () => {
                           justifyContent: "space-between",
                         }}
                       >
-                        <TextField
-                          id="outlined-multiline-flexible"
-                          label="Url"
-                          variant="outlined"
-                          fullWidth
-                          // multiline
-                          maxRows={4}
-                          type="text"
-                          name="id"
-                          // value={icons.message}
-                          onChange={handleChange}
-                        />
-                        <YouTube
-                          videoId={id}
-                          opts={opts}
-                          sx={{
-                            borderRadius:'8px'
-                          }}
-                          // onReady={this._onReady}
-                        />
-                        <Typography
+                        <Box >
+                        <Button onClick={handleOpen}>
+                        <PlayCircleOutlineOutlinedIcon sx={{
+  fontSize:'40px',
+  position:'absolute',
+  color:'white',
+  top:175,
+  zIndex:5
+}} />
+                          <Box>
+                            <img 
+                            height='350vw'
+                             width='350vw'
+                             sx={{objectFit:'cover',borderRadius:'50%'}} src={step.image} />
+                           
+                          </Box>
+                        </Button>
+                        </Box>
+                        <Typography ml={1}
                           sx={{
                             fontSize: theme.typography.body1,
                             fontWeight: 500,
@@ -217,7 +291,7 @@ const Testimonials = () => {
                         >
                           {step.name}
                         </Typography>
-                        <Typography
+                        <Typography ml={1}
                           sx={{
                             fontSize: theme.typography.subtitle2,
                             color: "grey",
@@ -231,7 +305,7 @@ const Testimonials = () => {
                             maxWidth: "25vw",
                           }}
                         >
-                          <Typography
+                          <Typography ml={1}
                             sx={{
                               fontSize: theme.typography.subtitle2,
                             }}
@@ -245,7 +319,9 @@ const Testimonials = () => {
                 </div>
               ))}
             </AutoPlaySwipeableViews>
-            <AutoPlaySwipeableViews
+              </Grid>
+              <Grid item xs={12} md={4}>
+              <AutoPlaySwipeableViews
               axis={theme.direction === "rtl" ? "x-reverse" : "x"}
               index={activeStep}
               onChangeIndex={handleStepChange}
@@ -262,27 +338,25 @@ const Testimonials = () => {
                           justifyContent: "space-between",
                         }}
                       >
-                        <TextField
-                          id="outlined-multiline-flexible"
-                          label="Url"
-                          variant="outlined"
-                          fullWidth
-                          // multiline
-                          maxRows={4}
-                          type="text"
-                          name="id"
-                          // value={icons.message}
-                          onChange={handleChange}
-                        />
-                        <YouTube
-                          videoId={id}
-                          opts={opts}
-                          sx={{
-                            borderRadius:'8px'
-                          }}
-                          // onReady={this._onReady}
-                        />
-                        <Typography
+                        <Box >
+                        <Button onClick={handleOpen}>
+                        <PlayCircleOutlineOutlinedIcon sx={{
+  fontSize:'40px',
+  position:'absolute',
+  color:'white',
+  top:175,
+  zIndex:5
+}} />
+                          <Box sx={{borderRadius:'10px'}}>
+                            <img 
+                            height='350vw' 
+                            width='350vw'
+                             sx={{objectFit:'cover',borderRadius:'10px'}} src={step.image} />
+                           
+                          </Box>
+                        </Button>
+                        </Box>
+                        <Typography ml={1}
                           sx={{
                             fontSize: theme.typography.body1,
                             fontWeight: 500,
@@ -290,7 +364,7 @@ const Testimonials = () => {
                         >
                           {step.name}
                         </Typography>
-                        <Typography
+                        <Typography ml={1}
                           sx={{
                             fontSize: theme.typography.subtitle2,
                             color: "grey",
@@ -304,7 +378,7 @@ const Testimonials = () => {
                             maxWidth: "25vw",
                           }}
                         >
-                          <Typography
+                          <Typography ml={1}
                             sx={{
                               fontSize: theme.typography.subtitle2,
                             }}
@@ -318,6 +392,11 @@ const Testimonials = () => {
                 </div>
               ))}
             </AutoPlaySwipeableViews>
+              </Grid>
+            </Grid>
+            
+            
+            
           </Box>
 
           <MobileStepper

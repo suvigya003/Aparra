@@ -1,20 +1,20 @@
 const TestimonialsMenu3 =[
     {
-        image:'images/1.webp',
+        image:'images/couple3.jpg',
         alt:"kitchen",
         name:"Modular Kitchen",
         size:"3BHK",
         msg:"We’re really happy with the materials that were used and the timeline for the project. The reaction we got from our friends when they first saw our place was priceless."
     },
     {
-        image:"images/2.webp",
+        image:"images/couple1.jpg",
         alt:"wardrobe",
         name:"Storage and Wardrobe",
         size:"1BHK",
         msg:"We’re really happy with the materials that were used and the timeline for the project. The reaction we got from our friends when they first saw our place was priceless."
     },
     {
-        image:"images/3.webp",
+        image:"images/couple2.jpg",
         alt:"crockery",
         name:"Crockery Units",
         size:"4BHK",
