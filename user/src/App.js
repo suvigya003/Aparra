@@ -17,7 +17,7 @@ function App() {
       <Navbar/>
       <HashRouter basename="/Aparra">
       <Routes>
-      <Route path="/" element={<HomePage/>} />
+      <Route path="/Aparra" element={<HomePage/>} />
       <Route path="/type" element={<Type/>} />
       </Routes>      
       </HashRouter>
