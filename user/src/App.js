@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import {HashRouter, Routes, Route} from 'react-router-dom';
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import Interior from './components/home page/interior/Main'
 import Type from './components/home page/interior/Type'
 import Sections from './components/home page/sections/Sections';
@@ -15,12 +15,12 @@ function App() {
     <>
     <ThemeProvider theme={theme}>
       <Navbar/>
-      <HashRouter basename="/Aparra">
+      <BrowserRouter >
       <Routes>
       <Route  path="/Aparra" element={<HomePage/>} />
       <Route path="/type" element={<Type/>} />
       </Routes>      
-      </HashRouter>
+      </BrowserRouter>
       <Footer/>
       </ThemeProvider>  
     </>
