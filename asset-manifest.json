@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/Aparra/static/css/main.6d04d7b7.css",
-    "main.js": "/Aparra/static/js/main.51057619.js",
+    "main.js": "/Aparra/static/js/main.0b665450.js",
     "static/js/787.83fdf458.chunk.js": "/Aparra/static/js/787.83fdf458.chunk.js",
     "static/media/logo.svg": "/Aparra/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/Aparra/index.html",
     "main.6d04d7b7.css.map": "/Aparra/static/css/main.6d04d7b7.css.map",
-    "main.51057619.js.map": "/Aparra/static/js/main.51057619.js.map",
+    "main.0b665450.js.map": "/Aparra/static/js/main.0b665450.js.map",
     "787.83fdf458.chunk.js.map": "/Aparra/static/js/787.83fdf458.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.6d04d7b7.css",
-    "static/js/main.51057619.js"
+    "static/js/main.0b665450.js"
   ]
 }
