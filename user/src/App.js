@@ -17,7 +17,7 @@ function App() {
       {/* <Interior/> */}
       <Navbar/>
       {/* <div style={{overflowY:"scroll", height:"800px"}}></div>  */}
-      <BrowserRouter>
+      <BrowserRouter basename="/Aparra">
       <Routes>
       <Route path="/" element={<HomePage/>} />
       <Route path="/type" element={<Type/>} />
