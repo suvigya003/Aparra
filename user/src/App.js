@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import {BrowserRouter, HashRouter, Routes, Route} from 'react-router-dom';
 import Interior from './components/home page/interior/Main'
 import Type from './components/home page/interior/Type'
 import Sections from './components/home page/sections/Sections';
@@ -14,15 +14,13 @@ function App() {
   return (
     <>
     <ThemeProvider theme={theme}>
-      {/* <Interior/> */}
       <Navbar/>
-      {/* <div style={{overflowY:"scroll", height:"800px"}}></div>  */}
-      <BrowserRouter basename="/Aparra">
+      <HashRouter basename="/Aparra">
       <Routes>
       <Route path="/" element={<HomePage/>} />
       <Route path="/type" element={<Type/>} />
       </Routes>      
-      </BrowserRouter>
+      </HashRouter>
       <Footer/>
       </ThemeProvider>  
     </>
