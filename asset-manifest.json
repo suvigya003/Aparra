@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/aparra/static/css/main.6d04d7b7.css",
+    "main.js": "/aparra/static/js/main.32d28ecb.js",
+    "static/js/787.83fdf458.chunk.js": "/aparra/static/js/787.83fdf458.chunk.js",
+    "static/media/logo.svg": "/aparra/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/aparra/index.html",
+    "main.6d04d7b7.css.map": "/aparra/static/css/main.6d04d7b7.css.map",
+    "main.32d28ecb.js.map": "/aparra/static/js/main.32d28ecb.js.map",
+    "787.83fdf458.chunk.js.map": "/aparra/static/js/787.83fdf458.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6d04d7b7.css",
+    "static/js/main.32d28ecb.js"
+  ]
+}
