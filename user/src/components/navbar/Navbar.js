@@ -171,7 +171,7 @@ const Navbar = () => {
             </Box>
           </Box>
         </Box>
-        <Box className={color ? "header-bg" : "header"} position="fixed" sx={{border:'1px solid black' ,display:{xs:'block',md:'none'}}}>
+        <Box className={color ? "header-bg" : "header"} position="fixed" sx={{display:{xs:'block',md:'none'}}}>
         
         <Box 
           // className={color ? "header-bg" : "header"}
@@ -179,7 +179,7 @@ const Navbar = () => {
             p={1}
             // fullWidth
             
-          sx={{ maxWidth:'100vw', display: {xs:"flex"}, justifyContent:'center',alignItems:'center', }}
+          sx={{ minWidth:'100vw', display: {xs:"flex"}, justifyContent:'space-between',alignItems:'center', }}
         >
           <Box >
             <Box
@@ -190,7 +190,7 @@ const Navbar = () => {
               sx={{
                 // height: 245,
                 display: "block",
-                maxWidth: "14vw",
+                maxWidth: "85px",
                 overflow: "hidden",
                 width: "100%",
                 borderRadius: "8px  8px 8px 8px",
@@ -199,9 +199,9 @@ const Navbar = () => {
               alt="logo"
             />
           </Box>
-          <Box ml={'76vw'} sx={{
+          {/* <Box ml={'70vw'} sx={{
             flexGrow:1
-          }}/>
+          }}/> */}
           <Box sx={{right:0}}>
             <Button sx={{padding:0}} onClick={()=>{
               setShown(!shown);
@@ -213,8 +213,8 @@ const Navbar = () => {
         </Box>
         {
           shown?(
-            <Box sx={{display:'flex',justifyContent:'right', borderRadius:'0px 0px 0px 8px'}}>
-            <Box mt='11vw' pl={'2vw'} className={color ? "header-list-bg" : "header"}minWidth='40vw'  sx={{display:'flex', flexDirection:'column',justifyContent:'right'}} position="fixed">
+            <Box sx={{display:'flex',justifyContent:'right'}}>
+            <Box mt='70px' pl={'2vw'} className={color ? "header-list-bg" : "header"}minWidth='40vw'  sx={{display:'flex', flexDirection:'column',justifyContent:'right',borderRadius:'0px 0px 8px 8px'}} position="fixed">
             <ul>
                <Box mt={'3vh'}>
                <li><a href="#">Design Gallery</a></li>

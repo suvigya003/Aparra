@@ -61,7 +61,7 @@ export const theme = createTheme({
         // margin: "0 0 0 0",
       },
       h2: {
-        fontSize: "3.5em", //banner title
+        fontSize: "4vw", //banner title
         fontWeight: 600,
         textShadow: '-1px 1px 10px rgba(0, 0, 0, 0.50)',
         // textShadowColor:'secondary'

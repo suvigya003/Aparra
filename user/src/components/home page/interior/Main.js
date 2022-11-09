@@ -58,14 +58,20 @@ const [items, setItems] = useState(Menu);
 return(
     <>
         <Grid item xs={4} md={12/5}>
-              <Box mb={'2vw'}>
+              <Box mb={'2vw'} sx={{}}>
                 <Link style={{textDecoration:'none', color:'inherit'}} to="/type">
-                <Box mb={'1vw'} sx={{ display: "flex", justifyContent: "center" }}>
+                <Box mb={'1vw'} sx={{ display: "flex", justifyContent: "center", }}>
                 <img height="50px" width="50px"
                  src={ele.image} alt={ele.alt} />
                 </Box>                
-                <Box sx={{ display: "flex", justifyContent: "center" }}>
-                  <Typography variant="subtitle2">{ele.title}</Typography>
+                <Box sx={{ display: "flex", justifyContent: "center", }}>
+                  <Typography 
+                  // variant="subtitle2"
+                  sx={{
+                    fontSize:'0.9rem',
+                    fontWeight: 400,
+                  }}
+                  >{ele.title}</Typography>
                 </Box>
                 </Link>                
               </Box>

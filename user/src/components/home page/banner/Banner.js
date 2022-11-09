@@ -100,8 +100,10 @@ const Banner = () => {
                         >
                           <Typography
                             sx={{
-                              fontSize: theme.typography.h2,
+                              fontSize: {xs:'25px',md:'4vw' },
+                              fontWeight: 600,
                               color: "white",
+                              maxHeight:'70vh',
                             }}
                           >
                             {step.title}
@@ -110,9 +112,9 @@ const Banner = () => {
                         <Box
                           mt={3}
                           sx={{
-                            top: "40%",
+                            top: {xs:'35%',md:'40%'},
                             left: "10%",
-                            maxWidth: "35vw",
+                            maxWidth: {xs:'70vw',md:'35vw'},
                             position: "absolute",
                             zIndex: 1,
                             wordWrap: "break-word",
@@ -120,7 +122,8 @@ const Banner = () => {
                         >
                           <Typography
                             sx={{
-                              fontSize: theme.typography.h3,
+                              fontSize: {xs:'12px',md:'1.2em' },
+                              fontWeight: 400,
                               color: "white",
                               textShadow: "-1px 1px 8px rgba(0, 0, 0, 0.50)",
                             }}
@@ -131,7 +134,7 @@ const Banner = () => {
                         <Box
                           mt={3}
                           sx={{
-                            top: "50%",
+                            top: {xs:'60%',md:'52%'},
                             left: "10%",
                             maxWidth: "35vw",
                             position: "absolute",
@@ -149,7 +152,7 @@ const Banner = () => {
                           >
                             <Typography
                               sx={{
-                                fontSize: theme.typography.h3,
+                                fontSize: {xs:'12px',md:'1.2em' },
                                 //   color: "white",
                                 textShadow: "-1px 1px 6px rgba(0, 0, 0, 0.40)",
                               }}

@@ -8,7 +8,6 @@ const footer = () => {
   return (
     <>
     <ThemeProvider theme={theme}>
-    
     <Box mt='10vw' mr="5vw" ml="5vw" mb="3vw">
       <Box mb={3}>
       <Divider  sx={{
@@ -29,7 +28,7 @@ const footer = () => {
                 sx={{
                   // height: 245,
                   display: 'block',
-                  maxWidth: '10vw',
+                  maxWidth: {md:'10vw',xs:'85px'},
                   overflow: 'hidden',
                   width: '100%',
                   borderRadius:'8px  8px 8px 8px'
@@ -52,9 +51,21 @@ const footer = () => {
           </Grid>
          
           <Grid item xs={12} sm={6} md={4}>
-            <Box ml='7vw'>
-            <Box mb='1vw'>
+            <Box
+            
+            sx={{
+             ml:{md:'7vw',xs:'0'}
+
+            //   border:'1px solid black',
+            // display:'flex',
+            // flexDirection:'column',
+            // alignItems:'center',
+            // justifyContent:'center'
+          }}
+             >
+            <Box mb='1vw' >
           <Typography sx={{
+            textAlign:'left',
                 fontSize:theme.typography.h7
             }}>Quick Links</Typography>          </Box>
           
@@ -70,7 +81,16 @@ const footer = () => {
           
           </Grid>
           <Grid item xs={12} sm={6} md={4} >
-            <Box ml='5vw'>
+            <Box
+            //  ml={md:'5vw',xs:'0'}
+            sx={{
+              ml:{md:'5vw',xs:'0'}
+            //   border:'1px solid black',
+            // display:'flex',
+            // flexDirection:'column',
+            // alignItems:'end',
+            }}
+            >
             <Box mb='1vw'>
           <Typography sx={{
                 fontSize:theme.typography.h7
@@ -78,50 +98,59 @@ const footer = () => {
           </Box>
           
           <Box mb={2} mt={1} sx={{display:'flex', }}>
+            <a href='#'>
             <Box component="img" mr={2}
             sx={{
               // height: 245,
               display: 'block',
-              maxWidth: '2vw',
+              maxWidth: {md:'2vw',xs:'25px'},
               overflow: 'hidden',
               width: '100%',
               borderRadius:'8px  8px 8px 8px'
             }}
               src="images/facebook.png"
             />
+            </a>
+            <a href='#'>
             <Box component="img" mr={2}
             sx={{
               // height: 245,
               display: 'block',
-              maxWidth: '2vw',
+              maxWidth: {md:'2vw',xs:'25px'},
               overflow: 'hidden',
               width: '100%',
               borderRadius:'8px  8px 8px 8px'
             }}
               src="images/twitter.png"
             />
+            </a>
+            <a href='#'>
             <Box component="img" mr={2}
             sx={{
               // height: 245,
               display: 'block',
-              maxWidth: '2vw',
+              maxWidth: {md:'2vw',xs:'25px'},
               overflow: 'hidden',
               width: '100%',
-              borderRadius:'8px  8px 8px 8px'
+              borderRadius:'8px  8px 8px 8px',
             }}
               src="images/pinterest.png"
             />
-            <Box component="img"
+            </a>
+            <a href='#'>
+            <Box component="img" 
             sx={{
               // height: 245,
               display: 'block',
-              maxWidth: '2vw',
+              maxWidth: {md:'2vw',xs:'25px'},
               overflow: 'hidden',
               width: '100%',
               borderRadius:'8px  8px 8px 8px'
             }}
               src="images/whatsapp.png"
             />
+            </a>
+            
         </Box>
             </Box>
           

@@ -65,9 +65,10 @@ const style = {
   borderRadius: "8px",
   // border: '2px solid #000',
   boxShadow: 24,
-  p: 4,
+  // p: 4,
   pt: 0,
   pr: 0,
+  // pl:0
 };
 
 const Type = () => {
@@ -76,13 +77,53 @@ const Type = () => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   // const theme = useTheme();
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const open1 = Boolean(anchorEl);
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
+  const [anchorEl1, setAnchorEl1] = React.useState(null);
+  const open1 = Boolean(anchorEl1);
+  const handleClick1 = (event) => {
+    setAnchorEl1(event.currentTarget);
   };
   const handleClose1 = () => {
-    setAnchorEl(null);
+    setAnchorEl1(null);
+  };
+  const [anchorEl2, setAnchorEl2] = React.useState(null);
+  const open2 = Boolean(anchorEl2);
+  const handleClick2 = (event) => {
+    setAnchorEl2(event.currentTarget);
+  };
+  const handleClose2 = () => {
+    setAnchorEl2(null);
+  };
+  const [anchorEl3, setAnchorEl3] = React.useState(null);
+  const open3 = Boolean(anchorEl3);
+  const handleClick3 = (event) => {
+    setAnchorEl3(event.currentTarget);
+  };
+  const handleClose3 = () => {
+    setAnchorEl3(null);
+  };
+  const [anchorEl4, setAnchorEl4] = React.useState(null);
+  const open4 = Boolean(anchorEl4);
+  const handleClick4 = (event) => {
+    setAnchorEl4(event.currentTarget);
+  };
+  const handleClose4 = () => {
+    setAnchorEl4(null);
+  };
+  const [anchorEl5, setAnchorEl5] = React.useState(null);
+  const open5 = Boolean(anchorEl5);
+  const handleClick5 = (event) => {
+    setAnchorEl5(event.currentTarget);
+  };
+  const handleClose5 = () => {
+    setAnchorEl5(null);
+  };
+  const [anchorEl6, setAnchorEl6] = React.useState(null);
+  const open6 = Boolean(anchorEl6);
+  const handleClick6 = (event) => {
+    setAnchorEl6(event.currentTarget);
+  };
+  const handleClose6 = () => {
+    setAnchorEl6(null);
   };
   const [activeStep, setActiveStep] = React.useState(0);
 
@@ -115,16 +156,9 @@ const Type = () => {
             </Button>
           </Box>
           <Box sx={style}>
-            <Box sx={{ display: "flex" }}>
+            <Box sx={{ display:{xs:'none',md:'flex'} ,  }}>
               <Box sx={{ borderRadius: "8px 0px 0px 8px", maxWidth: "55vw" }}>
-                {/* <img
-                    style={{
-                      borderRadius: "8px 0px 0px 8px",
-                      height: "85vh",
-                      width: "55vw",
-                    }}
-                    src='images/type.jpg'
-                  /> */}
+                
                 <AutoPlaySwipeableViews
                   axis={theme.direction === "rtl" ? "x-reverse" : "x"}
                   index={activeStep}
@@ -135,19 +169,19 @@ const Type = () => {
                     <div key={step.label}>
                       {Math.abs(activeStep - index) <= 2 ? (
                         <>
-                          <Box
+                          <Box className="modall"
                             sx={{
+                              overflowY: "scroll", height: "85vh" ,
                               display: "flex",
-                              // flexDirection:{xs:'column',md:'row'},
                               justifyContent: "space-between",
                             }}
                           >
                             <Box
+                            
                               component="img"
-                              // ml={"1vw"}
-                              // mr={"1vw"}
                               sx={{
                                 height: "85vh",
+                                objectFit:'content',
                                 display: "block",
                                 maxWidth: "55vw",
                                 overflow: "hidden",
@@ -171,9 +205,6 @@ const Type = () => {
                   steps={maxSteps}
                   position="static"
                   activeStep={activeStep}
-                  // sx={{
-                  //   display:'none'
-                  // }}
                   nextButton={
                     <Button
                       size="small"
@@ -228,37 +259,6 @@ const Type = () => {
                       Grey
                     </Typography>
                   </Box>
-
-                  {/* <Box mb={3}>
-<Button fullWidth variant="contained" sx={{
-    bgcolor:theme.palette.error.main,
-    borderRadius:'8px',
-    p:'14px 15px'
-}}>
-    <Typography sx={{
-        fontSize:theme.typography.h4
-    }}>
-    Book Free Design Session 
-    </Typography>
-    </Button>
-</Box>
-
-<Box>
-<Button variant="outlined" fullWidth sx={{
-    // bgcolor:theme.palette.error.main,
-    color:'black',
-    borderRadius:'8px',
-    p:'12px 15px'
-}}>
-    <FavoriteBorderOutlinedIcon/>
-    <Typography sx={{
-        fontSize:theme.typography.h3
-    }}>
-    Wishlist
-    </Typography>
-    </Button>
-</Box> */}
-
                   <Typography
                     mb={2}
                     sx={{
@@ -275,7 +275,6 @@ const Type = () => {
                     mt={2}
                     sx={{
                       fontSize: theme.typography.h8,
-                      // color:'grey'
                     }}
                   >
                     Specification
@@ -293,7 +292,6 @@ const Type = () => {
                     mt={2}
                     sx={{
                       fontSize: theme.typography.h8,
-                      // color:'grey'
                     }}
                   >
                     Share this Design
@@ -303,7 +301,6 @@ const Type = () => {
                       component="img"
                       mr={2}
                       sx={{
-                        // height: 245,
                         display: "block",
                         maxWidth: "2vw",
                         overflow: "hidden",
@@ -316,7 +313,6 @@ const Type = () => {
                       component="img"
                       mr={2}
                       sx={{
-                        // height: 245,
                         display: "block",
                         maxWidth: "2vw",
                         overflow: "hidden",
@@ -329,7 +325,6 @@ const Type = () => {
                       component="img"
                       mr={2}
                       sx={{
-                        // height: 245,
                         display: "block",
                         maxWidth: "2vw",
                         overflow: "hidden",
@@ -341,7 +336,6 @@ const Type = () => {
                     <Box
                       component="img"
                       sx={{
-                        // height: 245,
                         display: "block",
                         maxWidth: "2vw",
                         overflow: "hidden",
@@ -370,7 +364,6 @@ const Type = () => {
                               <img
                                 style={{
                                   borderRadius: "8px",
-                                  // height: "10vw",
                                   width: "10vw",
                                 }}
                                 src={ele.image}
@@ -385,17 +378,244 @@ const Type = () => {
                 </Box>
               </Box>
             </Box>
+            <Box 
+            className="modall"
+            sx={{ overflowY: "scroll", height: "85vh",display:{xs:'block',md:'none'} }}
+            >
+            <Box sx={{ borderRadius: "8px ", maxWidth: "100vw" }}>
+                <AutoPlaySwipeableViews
+                  axis={theme.direction === "rtl" ? "x-reverse" : "x"}
+                  index={activeStep}
+                  onChangeIndex={handleStepChange}
+                  enableMouseEvents
+                >
+                  {items.map((step, index) => (
+                    <div key={step.label}>
+                      {Math.abs(activeStep - index) <= 2 ? (
+                        <>
+                          <Box
+                          // ml={-10}
+                            sx={{
+                              display: "flex",
+                              justifyContent: "space-between",
+                            }}
+                          >
+                            <Box
+                              component="img"
+                              sx={{
+                                // height: "85vh",
+                                display: "block",
+                                maxWidth: "100vw",
+                                overflow: "hidden",
+                                width: "100%",
+                                borderRadius: "8px 8px 0px 0px ",
+                              }}
+                              src={step.image}
+                              alt={step.alt}
+                            />
+                          </Box>
+                        </>
+                      ) : null}
+                    </div>
+                  ))}
+                </AutoPlaySwipeableViews>
+                <MobileStepper
+                  sx={{
+                    bgcolor: "transparent",
+                  }}
+                  variant="dots"
+                  steps={maxSteps}
+                  position="static"
+                  activeStep={activeStep}
+                  nextButton={
+                    <Button
+                      size="small"
+                      onClick={handleNext}
+                      disabled={activeStep === maxSteps - 1}
+                      sx={{ color: "white" }}
+                    >
+                      Next
+                      {theme.direction === "rtl" ? (
+                        <KeyboardArrowLeft />
+                      ) : (
+                        <KeyboardArrowRight />
+                      )}
+                    </Button>
+                  }
+                  backButton={
+                    <Button
+                      size="small"
+                      onClick={handleBack}
+                      disabled={activeStep === 0}
+                      sx={{ color: "white" }}
+                    >
+                      {theme.direction === "rtl" ? (
+                        <KeyboardArrowRight />
+                      ) : (
+                        <KeyboardArrowLeft />
+                      )}
+                      Back
+                    </Button>
+                  }
+                />
+              </Box>
+              <Box
+                // className="modall"
+                // sx={{ overflowY: "scroll", height: "85vh" }}
+              >
+                <Box
+                  // ml={3}
+                  p={4}
+                  sx={{
+                    borderRadius: "0px 0px 8px 8px ",
+                    bgcolor: "background.paper",
+                  }}
+                >
+                  <Box mb={2}>
+                    <Typography
+                      sx={{
+                        fontSize: theme.typography.h5,
+                      }}
+                    >
+                      Glia Straight Wardrobe Design Magellan Vintage and Nova
+                      Grey
+                    </Typography>
+                  </Box>
+
+                  <Typography
+                    mb={2}
+                    sx={{
+                      fontSize: theme.typography.body2,
+                      color: "grey",
+                    }}
+                  >
+                    Add a dash of robustness and life to your living room with
+                    this nature-inspired wooden and stone More
+                  </Typography>
+
+                  <Divider variant="middle" sx={{ bgcolor: "#DDDDDD" }} />
+                  <Typography
+                    mt={2}
+                    sx={{
+                      fontSize: theme.typography.h8,
+                    }}
+                  >
+                    Specification
+                  </Typography>
+                  <Box sx={{ display: "flex" }} mb={2}>
+                    <Typography sx={{ fontSize: theme.typography.body2 }}>
+                      Size | &nbsp;
+                    </Typography>
+                    <Typography sx={{ fontSize: theme.typography.body2 }}>
+                      8
+                    </Typography>
+                  </Box>
+                  <Divider variant="middle" sx={{ bgcolor: "#DDDDDD" }} />
+                  <Typography
+                    mt={2}
+                    sx={{
+                      fontSize: theme.typography.h8,
+                    }}
+                  >
+                    Share this Design
+                  </Typography>
+                  <Box mb={2} mt={1} sx={{ display: "flex" }}>
+                    <Box
+                      component="img"
+                      mr={2}
+                      sx={{
+                        display: "block",
+                        maxWidth: {md:'2vw',xs:'25px'},
+                        overflow: "hidden",
+                        width: "100%",
+                        borderRadius: "8px  8px 8px 8px",
+                      }}
+                      src="images/facebook.png"
+                    />
+                    <Box
+                      component="img"
+                      mr={2}
+                      sx={{
+                        display: "block",
+                        maxWidth: {md:'2vw',xs:'25px'},
+                        overflow: "hidden",
+                        width: "100%",
+                        borderRadius: "8px  8px 8px 8px",
+                      }}
+                      src="images/twitter.png"
+                    />
+                    <Box
+                      component="img"
+                      mr={2}
+                      sx={{
+                        display: "block",
+                        maxWidth: {md:'2vw',xs:'25px'},
+                        overflow: "hidden",
+                        width: "100%",
+                        borderRadius: "8px  8px 8px 8px",
+                      }}
+                      src="images/pinterest.png"
+                    />
+                    <Box
+                      component="img"
+                      sx={{
+                        display: "block",
+                        maxWidth: {md:'2vw',xs:'25px'},
+                        overflow: "hidden",
+                        width: "100%",
+                        borderRadius: "8px  8px 8px 8px",
+                      }}
+                      src="images/whatsapp.png"
+                    />
+                  </Box>
+                  <Divider variant="middle" sx={{ bgcolor: "#DDDDDD" }} />
+                  <Typography
+                    mt={2}
+                    mb={1}
+                    sx={{
+                      fontSize: theme.typography.h8,
+                    }}
+                  >
+                    Related Designs
+                  </Typography>
+                  <Box>
+                    <Grid container spacing={2}>
+                      {items.map((ele) => {
+                        return (
+                          <>
+                            <Grid item xs={6} md={4}>
+                            <Box
+                            component="img"
+                            sx={{
+                              display: "block",
+                              maxWidth: {xs:'90vw',md:'31vw'},
+                              overflow: "hidden",
+                              width: "100%",
+                              borderRadius: "8px  8px 8px 8px",
+                            }}
+                            src={ele.image}
+                            alt={ele.alt}
+                          />
+                            </Grid>
+                          </>
+                        );
+                      })}
+                    </Grid>
+                  </Box>
+                </Box>
+              </Box>
+            </Box>
           </Box>
         </>
       </Modal>
 
       <ThemeProvider theme={theme}>
-      <Box sx={{minHeight:'16vh',bgcolor:'#0002'}}/> 
+      <Box sx={{minHeight:{xs:'23vw', sm:'7.5vw'},bgcolor:'#0002'}}/> 
         <Box ml={4} mr={4} mt={0} mb={5}>
           
-          {/* <Box mt={1}
+          <Box mt={1}
             sx={{
-              display: "flex",
+              display: {xs:'none',md:'flex'},
               justifyContent: "left",
               alignItems: "center",
             }}
@@ -425,7 +645,7 @@ const Type = () => {
                 aria-controls={open1 ? "fade-menu" : undefined}
                 aria-haspopup="true"
                 aria-expanded={open1 ? "true" : undefined}
-                onClick={handleClick}
+                onClick={handleClick1}
                 endIcon={<KeyboardArrowDownIcon sx={{ color: "grey" }} />}
                 sx={{ textTransform: "none" }}
               >
@@ -444,14 +664,14 @@ const Type = () => {
                 MenuListProps={{
                   "aria-labelledby": "fade-button",
                 }}
-                anchorEl={anchorEl}
+                anchorEl={anchorEl1}
                 open={open1}
                 onClose={handleClose1}
                 TransitionComponent={Fade}
               >
-                <MenuItem onClick={handleClose1}>Profile</MenuItem>
-                <MenuItem onClick={handleClose1}>My account</MenuItem>
-                <MenuItem onClick={handleClose1}>Logout</MenuItem>
+                <MenuItem onClick={handleClose1}>L-Shaped</MenuItem>
+                <MenuItem onClick={handleClose1}>Straight</MenuItem>
+                <MenuItem onClick={handleClose1}>U-Shaped</MenuItem>
               </Menu>
             </Box>
 
@@ -461,10 +681,10 @@ const Type = () => {
             }}>
               <Button
                 id="fade-button"
-                aria-controls={open1 ? "fade-menu" : undefined}
+                aria-controls={open2 ? "fade-menu" : undefined}
                 aria-haspopup="true"
-                aria-expanded={open1 ? "true" : undefined}
-                onClick={handleClick}
+                aria-expanded={open2 ? "true" : undefined}
+                onClick={handleClick2}
                 endIcon={<KeyboardArrowDownIcon sx={{ color: "grey" }} />}
                 sx={{ textTransform: "none" }}
               >
@@ -483,14 +703,15 @@ const Type = () => {
                 MenuListProps={{
                   "aria-labelledby": "fade-button",
                 }}
-                anchorEl={anchorEl}
-                open={open1}
-                onClose={handleClose1}
+                anchorEl={anchorEl2}
+                open={open2}
+                onClose={handleClose2}
                 TransitionComponent={Fade}
               >
-                <MenuItem onClick={handleClose1}>Profile</MenuItem>
-                <MenuItem onClick={handleClose1}>My account</MenuItem>
-                <MenuItem onClick={handleClose1}>Logout</MenuItem>
+                <MenuItem onClick={handleClose2}>Matte</MenuItem>
+                <MenuItem onClick={handleClose2}>Gloss</MenuItem>
+                <MenuItem onClick={handleClose2}>Glass</MenuItem>
+                <MenuItem onClick={handleClose2}>Wood</MenuItem>
               </Menu>
             </Box>
             <Box m={1} sx={{
@@ -499,10 +720,10 @@ const Type = () => {
             }}>
               <Button
                 id="fade-button"
-                aria-controls={open1 ? "fade-menu" : undefined}
+                aria-controls={open3 ? "fade-menu" : undefined}
                 aria-haspopup="true"
-                aria-expanded={open1 ? "true" : undefined}
-                onClick={handleClick}
+                aria-expanded={open3 ? "true" : undefined}
+                onClick={handleClick3}
                 endIcon={<KeyboardArrowDownIcon sx={{ color: "grey" }} />}
                 sx={{ textTransform: "none" }}
               >
@@ -521,14 +742,15 @@ const Type = () => {
                 MenuListProps={{
                   "aria-labelledby": "fade-button",
                 }}
-                anchorEl={anchorEl}
-                open={open1}
-                onClose={handleClose1}
+                anchorEl={anchorEl3}
+                open={open3}
+                onClose={handleClose3}
                 TransitionComponent={Fade}
               >
-                <MenuItem onClick={handleClose1}>Profile</MenuItem>
-                <MenuItem onClick={handleClose1}>My account</MenuItem>
-                <MenuItem onClick={handleClose1}>Logout</MenuItem>
+                <MenuItem onClick={handleClose3}>Singe Tone</MenuItem>
+                <MenuItem onClick={handleClose3}>Single Tone Light</MenuItem>
+                <MenuItem onClick={handleClose3}>Single Tone Dark</MenuItem>
+                <MenuItem onClick={handleClose3}>Dark Tone</MenuItem>
               </Menu>
             </Box>
             <Box m={1} sx={{
@@ -537,10 +759,10 @@ const Type = () => {
             }}>
               <Button
                 id="fade-button"
-                aria-controls={open1 ? "fade-menu" : undefined}
+                aria-controls={open4 ? "fade-menu" : undefined}
                 aria-haspopup="true"
-                aria-expanded={open1 ? "true" : undefined}
-                onClick={handleClick}
+                aria-expanded={open4 ? "true" : undefined}
+                onClick={handleClick4}
                 endIcon={<KeyboardArrowDownIcon sx={{ color: "grey" }} />}
                 sx={{ textTransform: "none" }}
               >
@@ -559,14 +781,14 @@ const Type = () => {
                 MenuListProps={{
                   "aria-labelledby": "fade-button",
                 }}
-                anchorEl={anchorEl}
-                open={open1}
-                onClose={handleClose1}
+                anchorEl={anchorEl4}
+                open={open4}
+                onClose={handleClose4}
                 TransitionComponent={Fade}
               >
-                <MenuItem onClick={handleClose1}>Profile</MenuItem>
-                <MenuItem onClick={handleClose1}>My account</MenuItem>
-                <MenuItem onClick={handleClose1}>Logout</MenuItem>
+                <MenuItem onClick={handleClose4}>Profile</MenuItem>
+                <MenuItem onClick={handleClose4}>My account</MenuItem>
+                <MenuItem onClick={handleClose4}>Logout</MenuItem>
               </Menu>
             </Box>
             <Box m={1} sx={{
@@ -575,10 +797,10 @@ const Type = () => {
             }}>
               <Button
                 id="fade-button"
-                aria-controls={open1 ? "fade-menu" : undefined}
+                aria-controls={open5 ? "fade-menu" : undefined}
                 aria-haspopup="true"
-                aria-expanded={open1 ? "true" : undefined}
-                onClick={handleClick}
+                aria-expanded={open5 ? "true" : undefined}
+                onClick={handleClick5}
                 endIcon={<KeyboardArrowDownIcon sx={{ color: "grey" }} />}
                 sx={{ textTransform: "none" }}
               >
@@ -597,14 +819,14 @@ const Type = () => {
                 MenuListProps={{
                   "aria-labelledby": "fade-button",
                 }}
-                anchorEl={anchorEl}
-                open={open1}
-                onClose={handleClose1}
+                anchorEl={anchorEl5}
+                open={open5}
+                onClose={handleClose5}
                 TransitionComponent={Fade}
               >
-                <MenuItem onClick={handleClose1}>Profile</MenuItem>
-                <MenuItem onClick={handleClose1}>My account</MenuItem>
-                <MenuItem onClick={handleClose1}>Logout</MenuItem>
+                <MenuItem onClick={handleClose5}>Loft</MenuItem>
+                <MenuItem onClick={handleClose5}>Dresser</MenuItem>
+                <MenuItem onClick={handleClose5}>Ladder Unit</MenuItem>
               </Menu>
             </Box>
             <Box m={1} sx={{
@@ -612,13 +834,14 @@ const Type = () => {
               borderRadius:'8px'
             }}>
               <Button
-                id="fade-button"
-                aria-controls={open1 ? "fade-menu" : undefined}
-                aria-haspopup="true"
-                aria-expanded={open1 ? "true" : undefined}
-                onClick={handleClick}
-                endIcon={<KeyboardArrowDownIcon sx={{ color: "grey" }} />}
+                // id="fade-button"
+                // aria-controls={open1 ? "fade-menu" : undefined}
+                // aria-haspopup="true"
+                // aria-expanded={open1 ? "true" : undefined}
+                // onClick={handleClick}
+                // endIcon={<KeyboardArrowDownIcon sx={{ color: "grey" }} />}
                 sx={{ textTransform: "none" }}
+                
               >
                 <Typography
                   sx={{
@@ -630,22 +853,48 @@ const Type = () => {
                   Clear
                 </Typography>
               </Button>
+             
+            </Box>
+          </Box>
+
+          <Box mt={1} sx={{display:{xs:'block',md:'none'}}}>
+          <Button
+                id="fade-button"
+                aria-controls={open6 ? "fade-menu" : undefined}
+                aria-haspopup="true"
+                aria-expanded={open6 ? "true" : undefined}
+                onClick={handleClick6}
+                endIcon={<KeyboardArrowDownIcon sx={{ color: "grey" }} />}
+                sx={{ textTransform: "none" }}
+              >
+                <Typography
+                  sx={{
+                    fontSize: theme.typography.subtitle1,
+                    color: "grey",
+                    fontWeight: 400,
+                  }}
+                >
+                  Filter By
+                </Typography>
+              </Button>
               <Menu
                 id="fade-menu"
                 MenuListProps={{
                   "aria-labelledby": "fade-button",
                 }}
-                anchorEl={anchorEl}
-                open={open1}
-                onClose={handleClose1}
+                anchorEl={anchorEl6}
+                open={open6}
+                onClose={handleClose6}
                 TransitionComponent={Fade}
               >
-                <MenuItem onClick={handleClose1}>Profile</MenuItem>
-                <MenuItem onClick={handleClose1}>My account</MenuItem>
-                <MenuItem onClick={handleClose1}>Logout</MenuItem>
+                <MenuItem onClick={handleClose6}>Shapes</MenuItem>
+                <MenuItem onClick={handleClose6}>Finish</MenuItem>
+                <MenuItem onClick={handleClose6}>Color Scheme</MenuItem>
+                <MenuItem onClick={handleClose6}>Color</MenuItem>
+                <MenuItem onClick={handleClose6}>Storage Options</MenuItem>
               </Menu>
-            </Box>
-          </Box> */}
+          </Box>
+
           <Grid
             container
             spacing={3}
@@ -658,7 +907,7 @@ const Type = () => {
                 <>
                   <Grid
                     item
-                    xs={6}
+                    xs={12}
                     sm={4}
                     sx={{
                       padding: 0,
@@ -672,7 +921,19 @@ const Type = () => {
                           padding: 0,
                         }}
                       >
-                        <img
+                        <Box
+                            component="img"
+                            sx={{
+                              display: "block",
+                              maxWidth: {xs:'90vw',md:'31vw'},
+                              overflow: "hidden",
+                              width: "100%",
+                              borderRadius: "8px  8px 8px 8px",
+                            }}
+                            src={ele.image}
+                            alt={ele.alt}
+                          />
+                        {/* <img
                           style={{
                             borderRadius: "8px",
                             // height: "30vw",
@@ -681,7 +942,7 @@ const Type = () => {
                           }}
                           src={ele.image}
                           alt={ele.alt}
-                        />
+                        /> */}
                       </Button>
                     </Box>
                     <Box sx={{ display: "flex" }}>

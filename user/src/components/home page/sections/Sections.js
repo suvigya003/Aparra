@@ -122,7 +122,7 @@ const Sections = () => {
                             mr={"1vw"}
                             sx={{
                               display: "block",
-                              maxWidth: "22vw",
+                              maxWidth: {xs:'90vw',md:'22vw'},
                               overflow: "hidden",
                               width: "100%",
                               borderRadius: "8px  8px 8px 8px",
@@ -137,7 +137,7 @@ const Sections = () => {
                         <Box
                           className="image"
                           sx={{
-                            display: "flex",
+                            display:{xs:'none',md:'flex'},
                             justifyContent: "space-between",
                           }}
                         >
@@ -172,7 +172,7 @@ const Sections = () => {
                         <Box
                           className="image"
                           sx={{
-                            display: "flex",
+                            display: {xs:'none',md:'flex'},
                             justifyContent: "space-between",
                           }}
                         >
@@ -207,7 +207,7 @@ const Sections = () => {
                         <Box
                           className="image"
                           sx={{
-                            display: "flex",
+                            display: {xs:'none',md:'flex'},
                             justifyContent: "space-between",
                           }}
                         >

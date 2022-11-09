@@ -94,7 +94,7 @@ const TrustedPartner = () => {
                         sx={{
                           // height: 245,
                           display: "block",
-                          maxWidth: "10vw",
+                          maxWidth: {xs:'30vw',md:'10vw'},
                           overflow: "hidden",
                           width: "100%",
                           borderRadius: "8px  8px 8px 8px",
@@ -121,7 +121,7 @@ const TrustedPartner = () => {
                   <>
                     <Box
                       sx={{
-                        display: "flex",
+                        display: {xs:'none',md:'flex'},
                         // flexDirection:{xs:'column',md:'row'},
                         justifyContent: "space-between",
                       }}
@@ -159,7 +159,7 @@ const TrustedPartner = () => {
                   <>
                     <Box
                       sx={{
-                        display: "flex",
+                        display: {xs:'none',md:'flex'},
                         // flexDirection:{xs:'column',md:'row'},
                         justifyContent: "space-between",
                       }}
@@ -197,7 +197,7 @@ const TrustedPartner = () => {
                   <>
                     <Box
                       sx={{
-                        display: "flex",
+                        display: {xs:'none',md:'flex'},
                         // flexDirection:{xs:'column',md:'row'},
                         justifyContent: "space-between",
                       }}
@@ -247,7 +247,7 @@ const TrustedPartner = () => {
                         sx={{
                           // height: 245,
                           display: "block",
-                          maxWidth: "10vw",
+                          maxWidth: {xs:'30vw',md:'10vw'},
                           overflow: "hidden",
                           width: "100%",
                           borderRadius: "8px  8px 8px 8px",

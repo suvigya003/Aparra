@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { theme } from "../../../theme";
-import './Testimonials.css';
+// import './Testimonials.css';
 import YouTube from "react-youtube";
-import PlayCircleOutlineOutlinedIcon from '@mui/icons-material/PlayCircleOutlineOutlined';
+import PlayCircleOutlineOutlinedIcon from "@mui/icons-material/PlayCircleOutlineOutlined";
 import TestimonialsMenu1 from "./TestimonialsMenu1";
 import TestimonialsMenu2 from "./TestimonialsMenu2";
 import TestimonialsMenu3 from "./TestimonialsMenu3";
@@ -23,7 +23,7 @@ import {
   Typography,
   TableContainer,
   TablePagination,
-  Modal
+  Modal,
 } from "@mui/material";
 import TextField from "@mui/material/TextField";
 import { useTheme } from "@mui/material/styles";
@@ -36,16 +36,15 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import SwipeableViews from "react-swipeable-views";
 import { autoPlay } from "react-swipeable-views-utils";
 
-
 const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
   // width: '80vw',
-  height:500,
-  bgcolor: 'background.paper',
-  borderRadius:'8px',
+  height: 500,
+  bgcolor: "background.paper",
+  borderRadius: "8px",
   // border: '2px solid #000',
   boxShadow: 24,
   p: 0,
@@ -87,7 +86,7 @@ const Testimonials = () => {
 
   const opts = {
     // marginLeft:'10px',
-    borderRadius:'8px',
+    borderRadius: "8px",
     height: "500vw",
     width: "950vw",
     playerVars: {
@@ -103,8 +102,7 @@ const Testimonials = () => {
 
   return (
     <>
-
-<Modal
+      <Modal
         open={open}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
@@ -123,14 +121,14 @@ const Testimonials = () => {
                           value={icons.message}
                           onChange={handleChange}
                         /> */}
-                        <YouTube 
-                          videoId='JMUJtgzX2ew'
-                          opts={opts}
-                          sx={{
-                            borderRadius:'8px'
-                          }}
-                          // onReady={_onReady}
-                        /> 
+          <YouTube
+            videoId="JMUJtgzX2ew"
+            opts={opts}
+            sx={{
+              borderRadius: "8px",
+            }}
+            // onReady={_onReady}
+          />
         </Box>
       </Modal>
       <ThemeProvider theme={theme}>
@@ -146,32 +144,31 @@ const Testimonials = () => {
             </Typography>
           </Box>
           <Box
-            ml={12}
-            mr={10}
+            ml={7}
+            mr={5}
             mt={5}
             mb={2}
             // sx={{ display: "flex", justifyContent: "space-between" }}
           >
-            <Grid container spacing={0} sx={{padding:0}}>
-              <Grid item xs={12} md={4}>
+            <Box sx={{ display: { xs: "flex", md: "none" } }}>
               <AutoPlaySwipeableViews
-              axis={theme.direction === "rtl" ? "x-reverse" : "x"}
-              index={activeStep}
-              onChangeIndex={handleStepChange}
-              enableMouseEvents
-            >
-              {items1.map((step, index) => (
-                <div key={step.label}>
-                  {Math.abs(activeStep - index) <= 2 ? (
-                    <>
-                      <Box
-                        sx={{
-                          display: "flex",
-                          flexDirection: "column",
-                          justifyContent: "space-between",
-                        }}
-                      >
-                        {/* <TextField
+                axis={theme.direction === "rtl" ? "x-reverse" : "x"}
+                index={activeStep}
+                onChangeIndex={handleStepChange}
+                enableMouseEvents
+              >
+                {items1.map((step, index) => (
+                  <div key={step.label}>
+                    {Math.abs(activeStep - index) <= 2 ? (
+                      <>
+                        <Box
+                          sx={{
+                            display: "flex",
+                            flexDirection: "column",
+                            justifyContent: "space-between",
+                          }}
+                        >
+                          {/* <TextField
                           id="outlined-multiline-flexible"
                           label="Url"
                           variant="outlined"
@@ -190,213 +187,361 @@ const Testimonials = () => {
                             borderRadius:'8px'
                           }}
                         /> */}
-                        <Box >
-                        <Button onClick={handleOpen}>
-                          <Box mr={2} >
-<PlayCircleOutlineOutlinedIcon sx={{
-  fontSize:'40px',
-  position:'absolute',
-  color:'white',
-  top:175,
-  left:175,
-  zIndex:5
-}} />
-                            <img 
-                            height='350vw' 
-                            width='350vw' 
-                             sx={{objectFit:'cover',}} src={step.image} />
-                           
-                          </Box>
-                        </Button>
-                        </Box>
-                        
-                        <Typography ml={1}
-                          sx={{
-                            fontSize: theme.typography.body1,
-                            fontWeight: 500,
-                          }}
-                        >
-                          {step.name}
-                        </Typography>
-                        <Typography ml={1}
-                          sx={{
-                            fontSize: theme.typography.subtitle2,
-                            color: "grey",
-                          }}
-                        >
-                          {step.size}
-                        </Typography>
-                        <Box ml={1}
-                          mt={2}
-                          sx={{
-                            maxWidth: "25vw",
-                          }}
-                        >
-                          <Typography
-                            sx={{
-                              fontSize: theme.typography.subtitle2,
-                            }}
-                          >
-                            {step.msg}
-                          </Typography>
-                        </Box>
-                      </Box>
-                    </>
-                  ) : null}
-                </div>
-              ))}
-            </AutoPlaySwipeableViews>
-              </Grid>
-              <Grid item xs={12} md={4}>
-              <AutoPlaySwipeableViews
-              axis={theme.direction === "rtl" ? "x-reverse" : "x"}
-              index={activeStep}
-              onChangeIndex={handleStepChange}
-              enableMouseEvents
-            >
-              {items2.map((step, index) => (
-                <div key={step.label}>
-                  {Math.abs(activeStep - index) <= 2 ? (
-                    <>
-                      <Box
-                        sx={{
-                          display: "flex",
-                          flexDirection: "column",
-                          justifyContent: "space-between",
-                        }}
-                      >
-                        <Box >
-                        <Button onClick={handleOpen}>
-                        <PlayCircleOutlineOutlinedIcon sx={{
-  fontSize:'40px',
-  position:'absolute',
-  color:'white',
-  top:175,
-  zIndex:5
-}} />
                           <Box>
-                            <img 
-                            height='350vw'
-                             width='350vw'
-                             sx={{objectFit:'cover',borderRadius:'50%'}} src={step.image} />
-                           
+                            <Button onClick={handleOpen}>
+                              <Box mr={2}>
+                                <PlayCircleOutlineOutlinedIcon
+                                  sx={{
+                                    fontSize: "40px",
+                                    position: "absolute",
+                                    color: "white",
+                                    top: 100,
+                                    left: 100,
+                                    zIndex: 5,
+                                  }}
+                                />
+                                
+                                <Box
+                                    component="img"
+                                    sx={{
+                                      display: "block",
+                                      maxWidth: {xs:'90vw',md:'28vw'},
+                                      minHeight: {xs:'50vw',md:'28vw'},
+                                      overflow: "hidden",
+                                      width: "100%",
+                                      borderRadius: "8px  8px 8px 8px",
+                                    }}
+                                    src={step.image}
+                                    alt={step.alt}
+                                    />
+                              </Box>
+                            </Button>
                           </Box>
-                        </Button>
-                        </Box>
-                        <Typography ml={1}
-                          sx={{
-                            fontSize: theme.typography.body1,
-                            fontWeight: 500,
-                          }}
-                        >
-                          {step.name}
-                        </Typography>
-                        <Typography ml={1}
-                          sx={{
-                            fontSize: theme.typography.subtitle2,
-                            color: "grey",
-                          }}
-                        >
-                          {step.size}
-                        </Typography>
-                        <Box
-                          mt={2}
-                          sx={{
-                            maxWidth: "25vw",
-                          }}
-                        >
-                          <Typography ml={1}
+
+                          <Typography
+                            ml={1}
                             sx={{
-                              fontSize: theme.typography.subtitle2,
+                              fontSize: theme.typography.body1,
+                              fontWeight: 500,
                             }}
                           >
-                            {step.msg}
+                            {step.name}
                           </Typography>
-                        </Box>
-                      </Box>
-                    </>
-                  ) : null}
-                </div>
-              ))}
-            </AutoPlaySwipeableViews>
-              </Grid>
-              <Grid item xs={12} md={4}>
-              <AutoPlaySwipeableViews
-              axis={theme.direction === "rtl" ? "x-reverse" : "x"}
-              index={activeStep}
-              onChangeIndex={handleStepChange}
-              enableMouseEvents
-            >
-              {items3.map((step, index) => (
-                <div key={step.label}>
-                  {Math.abs(activeStep - index) <= 2 ? (
-                    <>
-                      <Box
-                        sx={{
-                          display: "flex",
-                          flexDirection: "column",
-                          justifyContent: "space-between",
-                        }}
-                      >
-                        <Box >
-                        <Button onClick={handleOpen}>
-                        <PlayCircleOutlineOutlinedIcon sx={{
-  fontSize:'40px',
-  position:'absolute',
-  color:'white',
-  top:175,
-  zIndex:5
-}} />
-                          <Box sx={{borderRadius:'10px'}}>
-                            <img 
-                            height='350vw' 
-                            width='350vw'
-                             sx={{objectFit:'cover',borderRadius:'10px'}} src={step.image} />
-                           
-                          </Box>
-                        </Button>
-                        </Box>
-                        <Typography ml={1}
-                          sx={{
-                            fontSize: theme.typography.body1,
-                            fontWeight: 500,
-                          }}
-                        >
-                          {step.name}
-                        </Typography>
-                        <Typography ml={1}
-                          sx={{
-                            fontSize: theme.typography.subtitle2,
-                            color: "grey",
-                          }}
-                        >
-                          {step.size}
-                        </Typography>
-                        <Box
-                          mt={2}
-                          sx={{
-                            maxWidth: "25vw",
-                          }}
-                        >
-                          <Typography ml={1}
+                          <Typography
+                            ml={1}
                             sx={{
                               fontSize: theme.typography.subtitle2,
+                              color: "grey",
                             }}
                           >
-                            {step.msg}
+                            {step.size}
                           </Typography>
+                          <Box
+                            ml={1}
+                            mt={2}
+                            sx={{
+                              maxWidth: "80vw",
+                            }}
+                          >
+                            <Typography
+                              sx={{
+                                fontSize: theme.typography.subtitle2,
+                              }}
+                            >
+                              {step.msg}
+                            </Typography>
+                          </Box>
                         </Box>
-                      </Box>
-                    </>
-                  ) : null}
-                </div>
-              ))}
-            </AutoPlaySwipeableViews>
+                      </>
+                    ) : null}
+                  </div>
+                ))}
+              </AutoPlaySwipeableViews>
+            </Box>
+            <Box sx={{ display: { xs: "none", md: "block" } }}>
+              <Grid container spacing={0} sx={{ padding: 0 }}>
+                <Grid item xs={12} md={4}>
+                  <AutoPlaySwipeableViews
+                    axis={theme.direction === "rtl" ? "x-reverse" : "x"}
+                    index={activeStep}
+                    onChangeIndex={handleStepChange}
+                    enableMouseEvents
+                  >
+                    {items1.map((step, index) => (
+                      <div key={step.label}>
+                        {Math.abs(activeStep - index) <= 2 ? (
+                          <>
+                            <Box
+                              sx={{
+                                display: "flex",
+                                flexDirection: "column",
+                                justifyContent: "space-between",
+                              }}
+                            >
+                              {/* <TextField
+                          id="outlined-multiline-flexible"
+                          label="Url"
+                          variant="outlined"
+                          fullWidth
+                          // multiline
+                          maxRows={4}
+                          type="text"
+                          name="id"
+                          value={icons.message}
+                          onChange={handleChange}
+                        />
+                        <YouTube
+                          videoId={id}
+                          opts={opts}
+                          sx={{
+                            borderRadius:'8px'
+                          }}
+                        /> */}
+                              <Box>
+                                <Button onClick={handleOpen}>
+                                  <Box mr={2}>
+                                    <PlayCircleOutlineOutlinedIcon
+                                      sx={{
+                                        fontSize: "40px",
+                                        position: "absolute",
+                                        color: "white",
+                                        top: 175,
+                                        left: 175,
+                                        zIndex: 5,
+                                      }}
+                                    />
+                                    <Box
+                                    component="img"
+                                    sx={{
+                                      display: "block",
+                                      maxWidth: {xs:'90vw',md:'28vw'},
+                                      minHeight: {xs:'90vw',md:'28vw'},
+                                      overflow: "hidden",
+                                      width: "100%",
+                                      borderRadius: "8px  8px 8px 8px",
+                                    }}
+                                    src={step.image}
+                                    alt={step.alt}
+                                    />
+                                  </Box>
+                                </Button>
+                              </Box>
+
+                              <Typography
+                                ml={1}
+                                sx={{
+                                  fontSize: theme.typography.body1,
+                                  fontWeight: 500,
+                                }}
+                              >
+                                {step.name}
+                              </Typography>
+                              <Typography
+                                ml={1}
+                                sx={{
+                                  fontSize: theme.typography.subtitle2,
+                                  color: "grey",
+                                }}
+                              >
+                                {step.size}
+                              </Typography>
+                              <Box
+                                ml={1}
+                                mt={2}
+                                sx={{
+                                  maxWidth: "25vw",
+                                }}
+                              >
+                                <Typography
+                                  sx={{
+                                    fontSize: theme.typography.subtitle2,
+                                  }}
+                                >
+                                  {step.msg}
+                                </Typography>
+                              </Box>
+                            </Box>
+                          </>
+                        ) : null}
+                      </div>
+                    ))}
+                  </AutoPlaySwipeableViews>
+                </Grid>
+                <Grid item xs={12} md={4}>
+                  <AutoPlaySwipeableViews
+                    axis={theme.direction === "rtl" ? "x-reverse" : "x"}
+                    index={activeStep}
+                    onChangeIndex={handleStepChange}
+                    enableMouseEvents
+                  >
+                    {items2.map((step, index) => (
+                      <div key={step.label}>
+                        {Math.abs(activeStep - index) <= 2 ? (
+                          <>
+                            <Box
+                              sx={{
+                                display: "flex",
+                                flexDirection: "column",
+                                justifyContent: "space-between",
+                              }}
+                            >
+                              <Box>
+                                <Button onClick={handleOpen}>
+                                  <PlayCircleOutlineOutlinedIcon
+                                    sx={{
+                                      fontSize: "40px",
+                                      position: "absolute",
+                                      color: "white",
+                                      top: 175,
+                                      zIndex: 5,
+                                    }}
+                                  />
+                                  <Box>
+                                    <Box 
+                                    component="img"
+                                    sx={{
+                                      display: "block",
+                                      maxWidth: {xs:'90vw',md:'28vw'},
+                                      minHeight: {xs:'90vw',md:'28vw'},
+                                      overflow: "hidden",
+                                      width: "100%",
+                                      borderRadius: "8px  8px 8px 8px",
+                                    }}
+                                    src={step.image}
+                                    alt={step.alt}
+                                    />
+                                  </Box>
+                                </Button>
+                              </Box>
+                              <Typography
+                                ml={1}
+                                sx={{
+                                  fontSize: theme.typography.body1,
+                                  fontWeight: 500,
+                                }}
+                              >
+                                {step.name}
+                              </Typography>
+                              <Typography
+                                ml={1}
+                                sx={{
+                                  fontSize: theme.typography.subtitle2,
+                                  color: "grey",
+                                }}
+                              >
+                                {step.size}
+                              </Typography>
+                              <Box
+                                mt={2}
+                                sx={{
+                                  maxWidth: "25vw",
+                                }}
+                              >
+                                <Typography
+                                  ml={1}
+                                  sx={{
+                                    fontSize: theme.typography.subtitle2,
+                                  }}
+                                >
+                                  {step.msg}
+                                </Typography>
+                              </Box>
+                            </Box>
+                          </>
+                        ) : null}
+                      </div>
+                    ))}
+                  </AutoPlaySwipeableViews>
+                </Grid>
+                <Grid item xs={12} md={4}>
+                  <AutoPlaySwipeableViews
+                    axis={theme.direction === "rtl" ? "x-reverse" : "x"}
+                    index={activeStep}
+                    onChangeIndex={handleStepChange}
+                    enableMouseEvents
+                  >
+                    {items3.map((step, index) => (
+                      <div key={step.label}>
+                        {Math.abs(activeStep - index) <= 2 ? (
+                          <>
+                            <Box
+                              sx={{
+                                display: "flex",
+                                flexDirection: "column",
+                                justifyContent: "space-between",
+                              }}
+                            >
+                              <Box>
+                                <Button onClick={handleOpen}>
+                                  <PlayCircleOutlineOutlinedIcon
+                                    sx={{
+                                      fontSize: "40px",
+                                      position: "absolute",
+                                      color: "white",
+                                      top: 175,
+                                      zIndex: 5,
+                                    }}
+                                  />
+                                  <Box >
+                                  <Box 
+                                    component="img"
+                                    // ml={"1vw"}
+                                    // mr={"1vw"}
+                                    sx={{
+                                      display: "block",
+                                      maxWidth: {xs:'90vw',md:'28vw'},
+                                      minHeight: {xs:'90vw',md:'28vw'},
+                                      overflow: "hidden",
+                                      width: "100%",
+                                      borderRadius: "8px  8px 8px 8px",
+                                    }}
+                                    src={step.image}
+                                    alt={step.alt}/>
+                                  </Box>
+                                </Button>
+                              </Box>
+                              <Typography
+                                ml={1}
+                                sx={{
+                                  fontSize: theme.typography.body1,
+                                  fontWeight: 500,
+                                }}
+                              >
+                                {step.name}
+                              </Typography>
+                              <Typography
+                                ml={1}
+                                sx={{
+                                  fontSize: theme.typography.subtitle2,
+                                  color: "grey",
+                                }}
+                              >
+                                {step.size}
+                              </Typography>
+                              <Box
+                                mt={2}
+                                sx={{
+                                  maxWidth: "25vw",
+                                }}
+                              >
+                                <Typography
+                                  ml={1}
+                                  sx={{
+                                    fontSize: theme.typography.subtitle2,
+                                  }}
+                                >
+                                  {step.msg}
+                                </Typography>
+                              </Box>
+                            </Box>
+                          </>
+                        ) : null}
+                      </div>
+                    ))}
+                  </AutoPlaySwipeableViews>
+                </Grid>
               </Grid>
-            </Grid>
-            
-            
-            
+            </Box>
           </Box>
 
           <MobileStepper
