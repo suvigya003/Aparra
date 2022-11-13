@@ -168,7 +168,7 @@ const Navbar = () => {
           src="images/Aparra logo.png"
           alt="Logo"
           height={50}
-          style={{ marginLeft: "5px" }}
+          style={{ marginLeft: "12px" }}
         />
         {/* <Typography  sx={{fontSize: "14px",
         fontWeight: 400,
@@ -184,7 +184,7 @@ const Navbar = () => {
             {/* <NavLink to={`/${item.path}`}
              style={respNavLinkStyles}
             > */}
-            <a href="#" style={{textDecoration:'none'}}>
+            <a href="#" style={{textDecoration:'none',color:'inherit'}}>
             <ListItem key={index}>
                 <ListItemText>
                   <Typography
