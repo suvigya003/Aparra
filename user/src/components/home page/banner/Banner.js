@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { theme } from "../../../theme";
-import '../interior/Interior.css'
+import "../interior/Interior.css";
 import BannerMenu from "./BannerMenu";
 import BannerStepper from "./BannerStepper";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
@@ -54,180 +54,207 @@ const Banner = () => {
     <>
       <ThemeProvider theme={theme}>
         <Box mb={5}>
-          <AutoPlaySwipeableViews
-            axis={theme.direction === "rtl" ? "x-reverse" : "x"}
-            index={activeStep}
-            onChangeIndex={handleStepChange}
-            enableMouseEvents
+          <div
+            id="carouselExampleInterval"
+            class="carousel slide"
+            data-bs-ride="carousel"
           >
-
-            {items.map((step, index) => (
-              <div key={step.label}>
-                {Math.abs(activeStep - index) <= 2 ? (
-                  <>
-                    <Box>
-                      {/* <Box
-                        component="img"
+            <div class="carousel-inner">
+              <div class="carousel-item active" data-bs-interval="2000">
+              <Box
+                      sx={{
+                        top: "30%",
+                        left: "10%",
+                        position: "absolute",
+                        zIndex: 1,
+                      }}
+                    >
+                      <Typography
                         sx={{
-                          // height: 245,
-                          display: "block",
-                          maxHeight: "100vh",
-                          maxWidth: "100vw",
-                          overflow: "hidden",
-                          width: "100%",
+                          fontSize: { xs: "25px", md: "4vw" },
+                          fontWeight: 600,
+                          color: "white",
+                          maxHeight: "70vh",
                         }}
-                        src={step.image}
-                        alt={step.alt}
-                      /> */}
-                      <Box className='bannerAnimation' sx={{ position: "relative" }}>
-                      <Box
-                          sx={{
-                            // top: "30%",
-                            // left: "10%",
-                            position: "absolute",
-                            zIndex: 1,
-                          }}
-                        >
-                        {/* <Navbar/> */}
-                        </Box>
-                        <Box
-                          sx={{
-                            top: "30%",
-                            left: "10%",
-                            position: "absolute",
-                            zIndex: 1,
-                          }}
-                        >
-                          <Typography
-                            sx={{
-                              fontSize: {xs:'25px',md:'4vw' },
-                              fontWeight: 600,
-                              color: "white",
-                              maxHeight:'70vh',
-                            }}
-                          >
-                            {step.title}
-                          </Typography>
-                        </Box>
-                        <Box
-                          mt={3}
-                          sx={{
-                            top: {xs:'35%',md:'40%'},
-                            left: "10%",
-                            maxWidth: {xs:'70vw',md:'35vw'},
-                            position: "absolute",
-                            zIndex: 1,
-                            wordWrap: "break-word",
-                          }}
-                        >
-                          <Typography
-                            sx={{
-                              fontSize: {xs:'12px',md:'1.2em' },
-                              fontWeight: 400,
-                              color: "white",
-                              textShadow: "-1px 1px 8px rgba(0, 0, 0, 0.50)",
-                            }}
-                          >
-                            {step.subtitle}
-                          </Typography>
-                        </Box>
-                        <Box
-                          mt={3}
-                          sx={{
-                            top: {xs:'60%',md:'52%'},
-                            left: "10%",
-                            maxWidth: "35vw",
-                            position: "absolute",
-                            zIndex: 1,
-                          }}
-                        >
-                          <Button
-                            variant="outlined"
-                            sx={{
-                              color: "white",
-                              borderColor: "white",
-                              textTransform: "none",
-                              // padding:0
-                            }}
-                          >
-                            <Typography
-                              sx={{
-                                fontSize: {xs:'12px',md:'1.2em' },
-                                //   color: "white",
-                                textShadow: "-1px 1px 6px rgba(0, 0, 0, 0.40)",
-                              }}
-                            >
-                              {step.button}
-                            </Typography>
-                          </Button>
-                        </Box>
-                        {/* <Box
-                          sx={{
-                            top: "70%",
-                            left: "10%",
-                            position: "absolute",
-                            zIndex: 1,
-                          }}
-                        >
-                            <BannerStepper/>  
-                            </Box>  */}
-                        <img
-                          style={{
-                            // height: 245,
-                            display: "block",
-                            maxHeight: "100vh",
-                            maxWidth: "100vw",
-                            overflow: "hidden",
-                            width: "100%",
-                          }}
-                          src={step.image}
-                          alt={step.alt}
-                        />
-                      </Box>
+                      >
+                        Modular Kitchen
+                      </Typography>
                     </Box>
-                  </>
-                ) : null}
+                    <Box
+                      mt={3}
+                      sx={{
+                        top: { xs: "35%", md: "40%" },
+                        left: "10%",
+                        maxWidth: { xs: "70vw", md: "35vw" },
+                        position: "absolute",
+                        zIndex: 1,
+                        wordWrap: "break-word",
+                      }}
+                    >
+                      <Typography
+                        sx={{
+                          fontSize: { xs: "12px", md: "1.2em" },
+                          fontWeight: 400,
+                          color: "white",
+                          textShadow: "-1px 1px 8px rgba(0, 0, 0, 0.50)",
+                        }}
+                      >
+                        Reference site about Lorem Ipsum, giving information on its origins, as well as a random Lipsum generator.
+                      </Typography>
+                    </Box>
+                    <Box
+                      mt={3}
+                      sx={{
+                        top: { xs: "60%", md: "52%" },
+                        left: "10%",
+                        maxWidth: "35vw",
+                        position: "absolute",
+                        zIndex: 1,
+                      }}
+                    >
+                      <Button
+                        variant="outlined"
+                        sx={{
+                          color: "white",
+                          borderColor: "white",
+                          textTransform: "none",
+                          // padding:0
+                        }}
+                      >
+                        <Typography
+                          sx={{
+                            fontSize: { xs: "12px", md: "1.2em" },
+                            //   color: "white",
+                            textShadow: "-1px 1px 6px rgba(0, 0, 0, 0.40)",
+                          }}
+                        >
+                          Buy this Template
+                        </Typography>
+                      </Button>
+                    </Box>
+                <img src="images/banner1.jpg"  style={{
+                        // height: 245,
+                        display: "block",
+                        maxHeight: "100vh",
+                        maxWidth: "100vw",
+                        overflow: "hidden",
+                        width: "100%",
+                      }} class="d-block w-100" alt="..." />
               </div>
-            ))}     
-                  
-          </AutoPlaySwipeableViews>
-          <MobileStepper
-            variant="dots"
-            steps={maxSteps}
-            position="static"
-            activeStep={activeStep}
-            // sx={{
-            //   display:'none'
-            // }}
-            nextButton={
-              <Button
-                size="small"
-                onClick={handleNext}
-                disabled={activeStep === maxSteps - 1}
-              >
-                Next
-                {theme.direction === "rtl" ? (
-                  <KeyboardArrowLeft />
-                ) : (
-                  <KeyboardArrowRight />
-                )}
-              </Button>
-            }
-            backButton={
-              <Button
-                size="small"
-                onClick={handleBack}
-                disabled={activeStep === 0}
-              >
-                {theme.direction === "rtl" ? (
-                  <KeyboardArrowRight />
-                ) : (
-                  <KeyboardArrowLeft />
-                )}
-                Back
-              </Button>
-            }
-          />
+              {items.map((step, index) => (
+                <>
+                  <div class="carousel-item " data-bs-interval="2000">
+                    <Box
+                      sx={{
+                        top: "30%",
+                        left: "10%",
+                        position: "absolute",
+                        zIndex: 1,
+                      }}
+                    >
+                      <Typography
+                        sx={{
+                          fontSize: { xs: "25px", md: "4vw" },
+                          fontWeight: 600,
+                          color: "white",
+                          maxHeight: "70vh",
+                        }}
+                      >
+                        {step.title}
+                      </Typography>
+                    </Box>
+                    <Box
+                      mt={3}
+                      sx={{
+                        top: { xs: "35%", md: "40%" },
+                        left: "10%",
+                        maxWidth: { xs: "70vw", md: "35vw" },
+                        position: "absolute",
+                        zIndex: 1,
+                        wordWrap: "break-word",
+                      }}
+                    >
+                      <Typography
+                        sx={{
+                          fontSize: { xs: "12px", md: "1.2em" },
+                          fontWeight: 400,
+                          color: "white",
+                          textShadow: "-1px 1px 8px rgba(0, 0, 0, 0.50)",
+                        }}
+                      >
+                        {step.subtitle}
+                      </Typography>
+                    </Box>
+                    <Box
+                      mt={3}
+                      sx={{
+                        top: { xs: "60%", md: "52%" },
+                        left: "10%",
+                        maxWidth: "35vw",
+                        position: "absolute",
+                        zIndex: 1,
+                      }}
+                    >
+                      <Button
+                        variant="outlined"
+                        sx={{
+                          color: "white",
+                          borderColor: "white",
+                          textTransform: "none",
+                          // padding:0
+                        }}
+                      >
+                        <Typography
+                          sx={{
+                            fontSize: { xs: "12px", md: "1.2em" },
+                            //   color: "white",
+                            textShadow: "-1px 1px 6px rgba(0, 0, 0, 0.40)",
+                          }}
+                        >
+                          {step.button}
+                        </Typography>
+                      </Button>
+                    </Box>
+                    <img  
+                    style={{
+                        // height: 245,
+                        display: "block",
+                        maxHeight: "100vh",
+                        maxWidth: "100vw",
+                        overflow: "hidden",
+                        width: "100%",
+                      }}
+                    src={step.image} class="d-block w-100" alt="..." />
+                    
+                  </div>
+                </>
+              ))}
+            </div>
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#carouselExampleInterval"
+              data-bs-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#carouselExampleInterval"
+              data-bs-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
         </Box>
       </ThemeProvider>
     </>

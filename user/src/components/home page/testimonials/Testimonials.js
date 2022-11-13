@@ -6,6 +6,7 @@ import PlayCircleOutlineOutlinedIcon from "@mui/icons-material/PlayCircleOutline
 import TestimonialsMenu1 from "./TestimonialsMenu1";
 import TestimonialsMenu2 from "./TestimonialsMenu2";
 import TestimonialsMenu3 from "./TestimonialsMenu3";
+import Slider from "react-slick";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import {
   Card,
@@ -48,6 +49,14 @@ const style = {
   // border: '2px solid #000',
   boxShadow: 24,
   p: 0,
+};
+
+const settings = {
+  dots: true,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 3,
+  slidesToScroll: 3
 };
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
@@ -168,25 +177,6 @@ const Testimonials = () => {
                             justifyContent: "space-between",
                           }}
                         >
-                          {/* <TextField
-                          id="outlined-multiline-flexible"
-                          label="Url"
-                          variant="outlined"
-                          fullWidth
-                          // multiline
-                          maxRows={4}
-                          type="text"
-                          name="id"
-                          value={icons.message}
-                          onChange={handleChange}
-                        />
-                        <YouTube
-                          videoId={id}
-                          opts={opts}
-                          sx={{
-                            borderRadius:'8px'
-                          }}
-                        /> */}
                           <Box>
                             <Button onClick={handleOpen}>
                               <Box mr={2}>
@@ -278,25 +268,7 @@ const Testimonials = () => {
                                 justifyContent: "space-between",
                               }}
                             >
-                              {/* <TextField
-                          id="outlined-multiline-flexible"
-                          label="Url"
-                          variant="outlined"
-                          fullWidth
-                          // multiline
-                          maxRows={4}
-                          type="text"
-                          name="id"
-                          value={icons.message}
-                          onChange={handleChange}
-                        />
-                        <YouTube
-                          videoId={id}
-                          opts={opts}
-                          sx={{
-                            borderRadius:'8px'
-                          }}
-                        /> */}
+                             
                               <Box>
                                 <Button onClick={handleOpen}>
                                   <Box mr={2}>
@@ -543,44 +515,88 @@ const Testimonials = () => {
               </Grid>
             </Box>
           </Box>
+{/* <Box ml={7}
+            mr={5}
+            mt={5}
+            mb={2}
+            sx={{display:{sm:'block',xs:'none'}}}
+            >
+<Slider {...settings}>
+{items.map((step, index) => (
+  <>
+  <Box m={2}>
+  <Box>
+                                <Button onClick={handleOpen}>
+                                  <Box >
+                                    <PlayCircleOutlineOutlinedIcon
+                                      sx={{
+                                        fontSize: "40px",
+                                        position: "absolute",
+                                        color: "white",
+                                        top: '45%',
+                                        left: '45%',
+                                        zIndex: 5,
+                                      }}
+                                    />
+                                    <Box
+                                    component="img"
+                                    sx={{
+                                      display: "block",
+                                      maxWidth: '100%',
+                                      minHeight: {sm:'32vh'},
+                                      // maxHeight:'58vh',
+                                      objectFit:'cover',
+                                      overflow: "hidden",
+                                      width: "100%",
+                                      borderRadius: "8px",
+                                    }}
+                                    src={step.image}
+                                    alt={step.alt}
+                                    />
+                                  </Box>
+                                </Button>
+                              </Box>
 
-          <MobileStepper
-            variant="dots"
-            steps={maxSteps}
-            position="static"
-            activeStep={activeStep}
-            // sx={{
-            //   display:'none'
-            // }}
-            nextButton={
-              <Button
-                size="small"
-                onClick={handleNext}
-                disabled={activeStep === maxSteps - 1}
-              >
-                Next
-                {theme.direction === "rtl" ? (
-                  <KeyboardArrowLeft />
-                ) : (
-                  <KeyboardArrowRight />
-                )}
-              </Button>
-            }
-            backButton={
-              <Button
-                size="small"
-                onClick={handleBack}
-                disabled={activeStep === 0}
-              >
-                {theme.direction === "rtl" ? (
-                  <KeyboardArrowRight />
-                ) : (
-                  <KeyboardArrowLeft />
-                )}
-                Back
-              </Button>
-            }
-          />
+                              <Typography
+                                ml={1}
+                                sx={{
+                                  fontSize: theme.typography.body1,
+                                  fontWeight: 500,
+                                }}
+                              >
+                                {step.name}
+                              </Typography>
+                              <Typography
+                                ml={1}
+                                sx={{
+                                  fontSize: theme.typography.subtitle2,
+                                  color: "grey",
+                                }}
+                              >
+                                {step.size}
+                              </Typography>
+                              <Box
+                                ml={1}
+                                mt={2}
+                                sx={{
+                                  maxWidth: "25vw",
+                                }}
+                              >
+                                <Typography
+                                  sx={{
+                                    fontSize: theme.typography.subtitle2,
+                                  }}
+                                >
+                                  {step.msg}
+                                </Typography>
+                              </Box>
+  </Box>
+   
+                            
+  </>
+))}
+</Slider>
+</Box> */}
         </Box>
       </ThemeProvider>
     </>

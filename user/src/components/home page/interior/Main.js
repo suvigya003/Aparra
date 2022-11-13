@@ -43,7 +43,7 @@ const [items, setItems] = useState(Menu);
     </Typography>
 </Box>
         <Box ml="10vw" mr="10vw" pt={4} sx={{
-          background:"url('images/bg1.jpg')",
+          // background:"url('images/bg1.jpg')",
           minHeight:'50vh',
           maxWidth:'100vw',
         // marginTop:'-70px',

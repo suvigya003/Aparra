@@ -5,6 +5,8 @@ import TrustedPartnerMenu2 from "./TrustedPartnerMenu2";
 import TrustedPartnerMenu3 from "./TrustedPartnerMenu3";
 import TrustedPartnerMenu4 from "./TrustedPartnerMenu4";
 import TrustedPartnerMenu5 from "./TrustedPartnerMenu5";
+import Marquee from "react-fast-marquee";
+import Slider from "react-slick";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import {
   Card,
@@ -31,6 +33,7 @@ import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import SwipeableViews from "react-swipeable-views";
+
 import { autoPlay } from "react-swipeable-views-utils";
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
@@ -57,6 +60,53 @@ const TrustedPartner = () => {
 
   const maxSteps = items1.length;
 
+
+  var settings = {
+    dots: true,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 5,
+    slidesToScroll: 5,
+    initialSlide: 0,
+    responsive: [
+      {
+        breakpoint: '1024px',
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 4,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        breakpoint: '600px',
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          initialSlide: 2,
+          infinite: true,
+          dots: true
+        }
+      },
+      // {
+      //   breakpoint: 480,
+      //   settings: {
+      //     slidesToShow: 1,
+      //     slidesToScroll: 1
+      //   }
+      // }
+    ]
+  };
+  const settings_mobile = {
+    className: "center",
+    centerMode: true,
+    infinite: false,
+    centerPadding: "60px",
+    slidesToShow: 1,
+    speed: 500,
+    rows: 2,
+    slidesPerRow: 2
+  };
   return (
     <>
       <ThemeProvider theme={theme}>
@@ -69,237 +119,82 @@ const TrustedPartner = () => {
               Our Trusted Partners
             </Typography>
           </Box>
-          <Box ml={10} mr={10} mt={5} mb={2} sx={{display:'flex', justifyContent:'space-between', }}>
-          <AutoPlaySwipeableViews
-            axis={theme.direction === "rtl" ? "x-reverse" : "x"}
-            index={activeStep}
-            onChangeIndex={handleStepChange}
-            enableMouseEvents
+          <Box 
+          ml={10} mr={10} mt={5} mb={2} 
+          sx={{display:{sm:'block', xs:'none'}, }}
           >
-            {items1.map((step, index) => (
-              <div key={step.label}>
-                {Math.abs(activeStep - index) <= 2 ? (
-                  <>
-                    <Box
-                      sx={{
-                        display: "flex",
-                        // flexDirection:{xs:'column',md:'row'},
-                        justifyContent: "space-between",
-                      }}
-                    >
-                      <Box
-                        component="img"
-                        ml={"4vw"}
-                        mr={"1vw"}
-                        sx={{
-                          // height: 245,
-                          display: "block",
-                          maxWidth: {xs:'30vw',md:'10vw'},
-                          overflow: "hidden",
-                          width: "100%",
-                          borderRadius: "8px  8px 8px 8px",
-                          
-                        }}
-                        src={step.image}
-                        alt={step.alt}
-                      />
-                    </Box>
-                  </>
-                ) : null}
-              </div>
-            ))}
-          </AutoPlaySwipeableViews>
-          <AutoPlaySwipeableViews
-            axis={theme.direction === "rtl" ? "x-reverse" : "x"}
-            index={activeStep}
-            onChangeIndex={handleStepChange}
-            enableMouseEvents
-          >
-            {items2.map((step, index) => (
-              <div key={step.label}>
-                {Math.abs(activeStep - index) <= 2 ? (
-                  <>
-                    <Box
-                      sx={{
-                        display: {xs:'none',md:'flex'},
-                        // flexDirection:{xs:'column',md:'row'},
-                        justifyContent: "space-between",
-                      }}
-                    >
-                      <Box
-                        component="img"
-                        ml={"1vw"}
-                        mr={"1vw"}
-                        sx={{
-                          // height: 245,
-                          display: "block",
-                          maxWidth: "10vw",
-                          overflow: "hidden",
-                          width: "100%",
-                          borderRadius: "8px  8px 8px 8px",
-                        }}
-                        src={step.image}
-                        alt={step.alt}
-                      />
-                    </Box>
-                  </>
-                ) : null}
-              </div>
-            ))}
-          </AutoPlaySwipeableViews>
-          <AutoPlaySwipeableViews
-            axis={theme.direction === "rtl" ? "x-reverse" : "x"}
-            index={activeStep}
-            onChangeIndex={handleStepChange}
-            enableMouseEvents
-          >
-            {items3.map((step, index) => (
-              <div key={step.label}>
-                {Math.abs(activeStep - index) <= 2 ? (
-                  <>
-                    <Box
-                      sx={{
-                        display: {xs:'none',md:'flex'},
-                        // flexDirection:{xs:'column',md:'row'},
-                        justifyContent: "space-between",
-                      }}
-                    >
-                      <Box
-                        component="img"
-                        ml={"1vw"}
-                        mr={"1vw"}
-                        sx={{
-                          // height: 245,
-                          display: "block",
-                          maxWidth: "10vw",
-                          overflow: "hidden",
-                          width: "100%",
-                          borderRadius: "8px  8px 8px 8px",
-                        }}
-                        src={step.image}
-                        alt={step.alt}
-                      />
-                    </Box>
-                  </>
-                ) : null}
-              </div>
-            ))}
-          </AutoPlaySwipeableViews>
-          <AutoPlaySwipeableViews
-            axis={theme.direction === "rtl" ? "x-reverse" : "x"}
-            index={activeStep}
-            onChangeIndex={handleStepChange}
-            enableMouseEvents
-          >
-            {items4.map((step, index) => (
-              <div key={step.label}>
-                {Math.abs(activeStep - index) <= 2 ? (
-                  <>
-                    <Box
-                      sx={{
-                        display: {xs:'none',md:'flex'},
-                        // flexDirection:{xs:'column',md:'row'},
-                        justifyContent: "space-between",
-                      }}
-                    >
-                      <Box
-                        component="img"
-                        ml={"1vw"}
-                        mr={"1vw"}
-                        sx={{
-                          // height: 245,
-                          display: "block",
-                          maxWidth: "10vw",
-                          overflow: "hidden",
-                          width: "100%",
-                          borderRadius: "8px  8px 8px 8px",
-                        }}
-                        src={step.image}
-                        alt={step.alt}
-                      />
-                    </Box>
-                  </>
-                ) : null}
-              </div>
-            ))}
-          </AutoPlaySwipeableViews>
-          <AutoPlaySwipeableViews
-            axis={theme.direction === "rtl" ? "x-reverse" : "x"}
-            index={activeStep}
-            onChangeIndex={handleStepChange}
-            enableMouseEvents
-          >
-            {items5.map((step, index) => (
-              <div key={step.label}>
-                {Math.abs(activeStep - index) <= 2 ? (
-                  <>
-                    <Box
-                      sx={{
-                        display: "flex",
-                        // flexDirection:{xs:'column',md:'row'},
-                        justifyContent: "space-between",
-                      }}
-                    >
-                      <Box
-                        component="img"
-                        ml={"1vw"}
-                        mr={"1vw"}
-                        sx={{
-                          // height: 245,
-                          display: "block",
-                          maxWidth: {xs:'30vw',md:'10vw'},
-                          overflow: "hidden",
-                          width: "100%",
-                          borderRadius: "8px  8px 8px 8px",
-                        }}
-                        src={step.image}
-                        alt={step.alt}
-                      />
-                    </Box>
-                  </>
-                ) : null}
-              </div>
-            ))}
-          </AutoPlaySwipeableViews>
-          </Box>
+          <Slider {...settings}>
+          {items1.map((step, index) => (
           
-          <MobileStepper
-            variant="dots"
-            steps={maxSteps}
-            position="static"
-            activeStep={activeStep}
-            // sx={{
-            //   display:'none'
-            // }}
-            nextButton={
-              <Button
-                size="small"
-                onClick={handleNext}
-                disabled={activeStep === maxSteps - 1}
-              >
-                Next
-                {theme.direction === "rtl" ? (
-                  <KeyboardArrowLeft />
-                ) : (
-                  <KeyboardArrowRight />
-                )}
-              </Button>
-            }
-            backButton={
-              <Button
-                size="small"
-                onClick={handleBack}
-                disabled={activeStep === 0}
-              >
-                {theme.direction === "rtl" ? (
-                  <KeyboardArrowRight />
-                ) : (
-                  <KeyboardArrowLeft />
-                )}
-                Back
-              </Button>
-            }
-          />
+          <>
+       <Box
+            sx={{
+              display: "flex",
+              // flexDirection:{xs:'column',md:'row'},
+              justifyContent: "center",
+              // border:'1px solid black'
+            }}
+          >
+            <Box
+              component="img"
+              ml={"1vw"}
+              mr={"1vw"}
+              sx={{
+                // height: 245,
+                display: "block",
+                maxWidth: {sm:'50%'},
+                overflow: "hidden",
+                width: "100%",
+                borderRadius: "8px  8px 8px 8px",
+                
+              }}
+              src={step.image}
+              alt={step.alt}
+            />
+          </Box>
+          </>
+          
+          ))}
+          </Slider>
+          </Box>
+          <Box 
+          ml={10} mr={10} mt={5} mb={2} 
+          sx={{display:{sm:'none', xs:'content'}, }}
+          >
+<Slider {...settings_mobile}>
+          {items1.map((step, index) => (
+          
+          <>
+       <Box
+            sx={{
+              display: "flex",
+              // flexDirection:{xs:'column',md:'row'},
+              justifyContent: "center",
+              border:'1px solid black'
+            }}
+          >
+            <Box
+              component="img"
+              ml={"1vw"}
+              mr={"1vw"}
+              sx={{
+                // height: 245,
+                // display: "block",
+                // maxWidth: {sm:'50%'},
+                overflow: "hidden",
+                width: "100%",
+                borderRadius: "8px  8px 8px 8px",
+                
+              }}
+              src={step.image}
+              alt={step.alt}
+            />
+          </Box>
+          </>
+          
+          ))}
+          </Slider>
+          </Box>
         </Box>
       </ThemeProvider>
     </>

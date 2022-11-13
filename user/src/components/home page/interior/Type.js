@@ -159,6 +159,8 @@ const Type = () => {
             <Box sx={{ display:{xs:'none',md:'flex'} ,  }}>
               <Box sx={{ borderRadius: "8px 0px 0px 8px", maxWidth: "55vw" }}>
                 
+                
+
                 <AutoPlaySwipeableViews
                   axis={theme.direction === "rtl" ? "x-reverse" : "x"}
                   index={activeStep}
@@ -197,7 +199,7 @@ const Type = () => {
                     </div>
                   ))}
                 </AutoPlaySwipeableViews>
-                <MobileStepper
+                {/* <MobileStepper
                   sx={{
                     bgcolor: "transparent",
                   }}
@@ -235,7 +237,7 @@ const Type = () => {
                       Back
                     </Button>
                   }
-                />
+                /> */}
               </Box>
               <Box
                 className="modall"

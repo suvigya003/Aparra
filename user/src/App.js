@@ -1,3 +1,5 @@
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 import logo from './logo.svg';
 import './App.css';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
@@ -17,7 +19,7 @@ function App() {
       <Navbar/>
       <BrowserRouter >
       <Routes>
-      <Route  path="/Aparra" element={<HomePage/>} />
+      <Route  path="/" element={<HomePage/>} />
       <Route path="/type" element={<Type/>} />
       </Routes>      
       </BrowserRouter>

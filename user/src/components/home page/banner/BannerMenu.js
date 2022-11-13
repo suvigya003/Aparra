@@ -1,12 +1,12 @@
 const BannerMenu =[
-    {
-        image:'images/banner1.jpg',
-        alt:"kitchen",
-        title:"Modular Kitchen",
-        subtitle:"Reference site about Lorem Ipsum, giving information on its origins, as well as a random Lipsum generator.",
-        button: "Buy this Template",
-        color:'white'
-    },
+    // {
+    //     image:'images/banner1.jpg',
+    //     alt:"kitchen",
+    //     title:"Modular Kitchen",
+    //     subtitle:"Reference site about Lorem Ipsum, giving information on its origins, as well as a random Lipsum generator.",
+    //     button: "Buy this Template",
+    //     color:'white'
+    // },
     {
         image:"images/banner2.jpg",
         alt:"wardrobe",
