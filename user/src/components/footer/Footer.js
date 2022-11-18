@@ -45,7 +45,7 @@ const footer = () => {
             <Typography sx={{
                 fontSize:theme.typography.subtitle2
             }} >
-              A13/5 Basement,<br/> Meerut Road Industrial Area, <br/>Ghaziabad, Uttar Pradesh 201003
+              A13/5,<br/> Meerut Road Industrial Area, <br/>Ghaziabad, Uttar Pradesh 201003
               
             </Typography>
           </Grid>

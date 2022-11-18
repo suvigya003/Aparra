@@ -4,6 +4,7 @@ import Main from './interior/Main';
 import Banner from './banner/Banner';
 import TrustedPartner from './trustedPartner/TrustedPartner';
 import Testimonials from './testimonials/Testimonials';
+import WhyAparra from './whyAparra/WhyAparra';
 
 const HomePage = () => {
   return (
@@ -13,6 +14,7 @@ const HomePage = () => {
         <Sections/>
         <Testimonials/>
         <TrustedPartner/>
+        <WhyAparra/>
     </>
   )
 }

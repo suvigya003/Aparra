@@ -185,8 +185,8 @@ const Testimonials = () => {
                                     fontSize: "40px",
                                     position: "absolute",
                                     color: "white",
-                                    top: 100,
-                                    left: 100,
+                                    top: {md:100,xs:400},
+                                    left: {md:100,xs:400},
                                     zIndex: 5,
                                   }}
                                 />
@@ -194,7 +194,7 @@ const Testimonials = () => {
                                 <Box
                                     component="img"
                                     sx={{
-                                      display: "block",
+                                      display: 'block',
                                       maxWidth: {xs:'90vw',md:'28vw'},
                                       minHeight: {xs:'50vw',md:'28vw'},
                                       overflow: "hidden",
@@ -205,6 +205,16 @@ const Testimonials = () => {
                                     alt={step.alt}
                                     />
                               </Box>
+                              {/* <Box sx={{
+                                display:{sx:'block',md:'none'}
+                              }}>
+                                <img
+          src={step.image}
+          alt="Logo"
+          height={500}
+          style={{ marginLeft: "12px" }}
+        />
+                              </Box> */}
                             </Button>
                           </Box>
 

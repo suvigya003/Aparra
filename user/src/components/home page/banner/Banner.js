@@ -3,6 +3,8 @@ import { theme } from "../../../theme";
 import "../interior/Interior.css";
 import BannerMenu from "./BannerMenu";
 import BannerStepper from "./BannerStepper";
+import Slider from "react-slick";
+
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import {
   Card,
@@ -49,6 +51,14 @@ const Banner = () => {
   };
 
   const maxSteps = items.length;
+
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1
+  };
 
   return (
     <>
@@ -220,7 +230,8 @@ const Banner = () => {
                         // height: 245,
                         display: "block",
                         maxHeight: "100vh",
-                        maxWidth: "100vw",
+                        maxWidth: "1600px",
+                        width:'100%',
                         overflow: "hidden",
                         width: "100%",
                       }}

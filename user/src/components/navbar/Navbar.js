@@ -19,6 +19,9 @@ import {
   Stack,
   Avatar,
   Button,
+  MenuItem,
+  Menu,
+  Fade,
   Checkbox,
   TableRow,
   TableBody,
@@ -29,10 +32,28 @@ import {
   TablePagination,
 } from "@mui/material";
 import MenuIcon from '@mui/icons-material/Menu';
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 
 const Navbar = () => {
   const [color, setColor] = useState(false);
   const [shown, setShown] = useState(false);
+  const [anchorEl1, setAnchorEl1] = React.useState(null);
+  const open1 = Boolean(anchorEl1);
+  const handleClick1 = (event) => {
+    setAnchorEl1(event.currentTarget);
+  };
+  const handleClose1 = () => {
+    setAnchorEl1(null);
+  };
+  const [anchorEl2, setAnchorEl2] = React.useState(null);
+  const open2 = Boolean(anchorEl2);
+  const handleClick2 = (event) => {
+    setAnchorEl2(event.currentTarget);
+  };
+  const handleClose2 = () => {
+    setAnchorEl2(null);
+  };
   // const changeColor=()=>{
   //   if(window.scrollY===90){
   //     setColor(true)
@@ -65,14 +86,6 @@ const Navbar = () => {
   }, []);
 
   const navItems = [
-    // {
-    //   name: "Home",
-    //   path: "",
-    // },
-    // {
-    //   name: "About",
-    //   path: "about",
-    // },
     {
       name: "Modular Kitchen",
       path: "type",
@@ -97,26 +110,30 @@ const Navbar = () => {
       name: "Kids Bedroom",
       path: "notice-board",
     },
+    
+  ];
+
+  const navItems_md = [
     {
-      name: "Pooja Unit",
-      path: "notice-board",
+      name: "Modular Kitchen",
+      path: "type",
     },
     {
-      name: "Doors",
-      path: "notice-board",
+      name: "TV Unit",
+      path: "allcourses",
     },
     {
-      name: "Vanity Van",
-      path: "notice-board",
+      name: "Storage & Wardrobe",
+      path: "syllabus",
     },
-    // {
-    //   name: "Contact",
-    //   path: "contact",
-    // },
-    // {
-    //   name: "FAQ",
-    //   path: "faq",
-    // },
+    {
+      name: "Crockery Unit",
+      path: "gallery",
+    },
+    {
+      name: "Study Table",
+      path: "career",
+    },
     
   ];
 
@@ -265,7 +282,7 @@ const Navbar = () => {
         />
             <Box className={color ? "header-bg" : "header"}
               sx={{
-                display: { xs: "none", md: "flex" },
+                display: { xs: "none", lg: "flex" },
                 width: "100%",
                 maxWidth: "1200px",
                 alignItems: "center",
@@ -276,7 +293,10 @@ const Navbar = () => {
                 <>
                  {/* <NavLink key={index} to={`/${item.path}`} style={navLinkStyles}> */}
                  <a href="#" style={{textDecoration:'none'}}>
-                 <Box mr={1}>
+                 <Box sx={{
+                  marginLeft:{lg:'30px',md:'10px'},
+                  marginRight:{lg:'30px',md:'10px'}
+                 }}>
                  <Typography 
                 className={color ? "header-bg" : "header"}
                 sx={{  fontSize: "14px",
@@ -295,7 +315,111 @@ const Navbar = () => {
                 </>
               ))}
               
+              <Box m={1} sx={{
+              // border:'1px solid grey',
+              // borderRadius:'8px'
+            }}>
+              <Button
+                id="fade-button"
+                aria-controls={open1 ? "fade-menu" : undefined}
+                aria-haspopup="true"
+                aria-expanded={open1 ? "true" : undefined}
+                onClick={handleClick1}
+                // endIcon={<KeyboardArrowDownIcon sx={{ color: "grey" }} />}
+                sx={{ textTransform: "none" }}
+              >
+                <MoreHorizIcon className={color ? "header-bg" : "header"} 
+                // sx={{
+                //   color:'white'
+                // }}
+                />
+              </Button>
+              <Menu
+                id="fade-menu"
+                MenuListProps={{
+                  "aria-labelledby": "fade-button",
+                }}
+                anchorEl={anchorEl1}
+                open={open1}
+                onClose={handleClose1}
+                TransitionComponent={Fade}
+              >
+                <MenuItem onClick={handleClose1}>Pooja Unit</MenuItem>
+                <MenuItem onClick={handleClose1}>Doors</MenuItem>
+                <MenuItem onClick={handleClose1}>Vanity Van</MenuItem>
+              </Menu>
+            </Box>
+            </Box>
+            <Box className={color ? "header-bg" : "header"}
+              sx={{
+                display: { xs: "none", lg: "none",md:'flex' },
+                width: "100%",
+                maxWidth: "1200px",
+                alignItems: "center",
+                justifyContent: "end",
+              }}
+            >
+              {navItems_md.map((item, index) => (
+                <>
+                 {/* <NavLink key={index} to={`/${item.path}`} style={navLinkStyles}> */}
+                 <a href="#" style={{textDecoration:'none'}}>
+                 <Box sx={{
+                  marginLeft:{md:'16px'},
+                  marginRight:{md:'16px'}
+                 }}>
+                 <Typography 
+                className={color ? "header-bg" : "header"}
+                sx={{  fontSize: "14px",
+                fontWeight: 400,
+                margin: "0 0 0 0",
+                lineHeight: "37px", }}
+                >
+                  {item.name}
+                </Typography>
+                 </Box>
+                 </a>
+                 
+                
+                
+                {/* </NavLink> */}
+                </>
+              ))}
               
+              <Box m={1} sx={{
+              // border:'1px solid grey',
+              // borderRadius:'8px'
+            }}>
+              <Button
+                id="fade-button"
+                aria-controls={open2 ? "fade-menu" : undefined}
+                aria-haspopup="true"
+                aria-expanded={open2 ? "true" : undefined}
+                onClick={handleClick2}
+                // endIcon={<KeyboardArrowDownIcon sx={{ color: "grey" }} />}
+                sx={{ textTransform: "none" }}
+              >
+                <MoreHorizIcon className={color ? "header-bg" : "header"} 
+                // sx={{
+                //   color:'white'
+                // }}
+                />
+              </Button>
+              <Menu
+                id="fade-menu"
+                MenuListProps={{
+                  "aria-labelledby": "fade-button",
+                }}
+                anchorEl={anchorEl2}
+                open={open2}
+                onClose={handleClose2}
+                TransitionComponent={Fade}
+              >
+                <MenuItem onClick={handleClose2}>Kids Bedroom</MenuItem>
+                <MenuItem onClick={handleClose2}>Pooja Unit</MenuItem>
+                <MenuItem onClick={handleClose2}>Doors</MenuItem>
+                <MenuItem onClick={handleClose2}>Vanity Van</MenuItem>
+              </Menu>
+            </Box>
             </Box>
           </Box>
         {/* <Box 

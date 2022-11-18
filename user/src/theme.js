@@ -87,10 +87,10 @@ export const theme = createTheme({
         // margin: "0 0 0 0",
       },
       h6: {
-          fontSize: "1.5em",
+          fontSize: "22px",
           fontWeight: 700,
-          // lineHeight: "28px",
-          // margin: "0 0 0 0",
+          lineHeight: "30px",
+          margin: "0 0 0 0",
       },
       h7: {
           fontSize: "1.3em",

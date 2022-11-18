@@ -101,7 +101,7 @@ const TrustedPartner = () => {
     className: "center",
     centerMode: true,
     infinite: false,
-    centerPadding: "60px",
+    centerPadding: "10px",
     slidesToShow: 1,
     speed: 500,
     rows: 2,
@@ -121,7 +121,7 @@ const TrustedPartner = () => {
           </Box>
           <Box 
           ml={10} mr={10} mt={5} mb={2} 
-          sx={{display:{sm:'block', xs:'none'}, }}
+          sx={{display:{sm:'block', xs:'block'}, }}
           >
           <Slider {...settings}>
           {items1.map((step, index) => (
@@ -142,7 +142,8 @@ const TrustedPartner = () => {
               sx={{
                 // height: 245,
                 display: "block",
-                maxWidth: {sm:'50%'},
+                maxWidth: {xs:'80%',md:'50%'},
+                // minHeight:{xs:'5vw'},
                 overflow: "hidden",
                 width: "100%",
                 borderRadius: "8px  8px 8px 8px",
@@ -158,8 +159,8 @@ const TrustedPartner = () => {
           </Slider>
           </Box>
           <Box 
-          ml={10} mr={10} mt={5} mb={2} 
-          sx={{display:{sm:'none', xs:'content'}, }}
+          ml={3} mr={3} mt={5} mb={2} 
+          sx={{display:{sm:'none', xs:'none'}, }}
           >
 <Slider {...settings_mobile}>
           {items1.map((step, index) => (
@@ -173,7 +174,13 @@ const TrustedPartner = () => {
               border:'1px solid black'
             }}
           >
-            <Box
+            <img
+          src={step.image}
+          alt="Logo"
+          height={50}
+          // style={{ marginLeft: "12px" }}
+        />
+            {/* <Box
               component="img"
               ml={"1vw"}
               mr={"1vw"}
@@ -188,7 +195,7 @@ const TrustedPartner = () => {
               }}
               src={step.image}
               alt={step.alt}
-            />
+            /> */}
           </Box>
           </>
           

@@ -31,7 +31,7 @@ const Menu =[
         title:"Study Tables"
     },
     {
-        image:"images/ceiling.png",
+        image:"images/van.png",
         alt:"kitchen",
         title:"Vanity Van"
     },
@@ -61,7 +61,7 @@ const Menu =[
         title:"Pooja Unit"
     },
     {
-        image:"images/living-room.png",
+        image:"images/door.png",
         alt:"kitchen",
         title:"Doors"
     },

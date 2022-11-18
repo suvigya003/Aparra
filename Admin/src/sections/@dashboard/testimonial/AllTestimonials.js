@@ -33,9 +33,9 @@ import USERLIST from '../../../_mock/user';
 const TABLE_HEAD = [
   { id: 'tName', label: 'Name', alignRight: false },
   { id: 'company', label: 'Designation', alignRight: false },
-  { id: 'role', label: 'Pic', alignRight: false },
   { id: 'isVerified', label: 'Message', alignRight: false },
-//   { id: 'status', label: 'Status', alignRight: false },
+  { id: 'role', label: 'Pic', alignRight: false },  
+  { id: 'status', label: 'Video Id', alignRight: false },
   { id: '' },
 ];
 
@@ -185,6 +185,7 @@ export default function AllTestimonials() {
                           </Stack>
                         </TableCell> */}
                         <TableCell align="left">{company}</TableCell>
+                        <TableCell align="left">{role}</TableCell>
                         <TableCell align="left">{role}</TableCell>
                         <TableCell align="left">{role}</TableCell>
                         <TableCell align="left">{isVerified ? 'Yes' : 'No'}</TableCell>

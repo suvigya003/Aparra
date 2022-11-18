@@ -24,6 +24,7 @@ const NewTestimonial = () => {
         name: '',
         message: '',
         designation: '',
+        videoId:''
       });
     
       const handleChange = ({ currentTarget: input }) => {
@@ -64,6 +65,20 @@ const NewTestimonial = () => {
                   value={testimonial.designation}
                   onChange={handleChange}
                 />
+                </Grid>                
+                <Grid item xs={12} md={6}>
+                <TextField
+                id="outlined-multiline-flexible"
+                  label="Message"
+                  variant="outlined"
+                  fullWidth
+                  multiline
+                  maxRows={4}
+                  type="text"
+                  name="message"
+                  value={testimonial.message}
+                  onChange={handleChange}
+                />
                 </Grid>
                 <Grid item xs={12} md={6}>
                 <Button variant="outlined" fullWidth component="label" sx={{pt:1.8,pb:1.8}}>
@@ -78,14 +93,14 @@ const NewTestimonial = () => {
                 <Grid item xs={12} md={6}>
                 <TextField
                 id="outlined-multiline-flexible"
-                  label="Message"
+                  label="Video Id"
                   variant="outlined"
                   fullWidth
                   multiline
                   maxRows={4}
                   type="text"
-                  name="message"
-                  value={testimonial.message}
+                  name="videoId"
+                  value={testimonial.videoId}
                   onChange={handleChange}
                 />
                 </Grid>

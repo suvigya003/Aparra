@@ -16,19 +16,19 @@ const navConfig = [
     path: '/banner',
     icon: getIcon('eva:shopping-bag-fill'),
   },
+  // {
+  //   title: 'Gallery',
+  //   path: '/gallery',
+  //   icon: getIcon('eva:file-text-fill'),
+  // },
   {
-    title: 'Gallery',
-    path: '/gallery',
+    title: 'Category',
+    path: '/category',
     icon: getIcon('eva:file-text-fill'),
   },
   {
     title: 'Product Image',
     path: '/productImage',
-    icon: getIcon('eva:file-text-fill'),
-  },
-  {
-    title: 'Category',
-    path: '/category',
     icon: getIcon('eva:file-text-fill'),
   },
   {
