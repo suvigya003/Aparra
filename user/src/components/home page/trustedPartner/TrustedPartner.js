@@ -146,8 +146,7 @@ const TrustedPartner = () => {
                 // minHeight:{xs:'5vw'},
                 overflow: "hidden",
                 width: "100%",
-                borderRadius: "8px  8px 8px 8px",
-                
+                borderRadius: "8px  8px 8px 8px",                
               }}
               src={step.image}
               alt={step.alt}

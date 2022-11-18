@@ -41,7 +41,7 @@ const WhyAparra = () => {
             Why Aparaa?
           </Typography>
         </Box>
-        <Box   sx={{marginLeft:{md:'95px',lg:'160px'}, marginRight:{md:'95px',lg:'160px'}, display: {xs:'none',md:'flex'}, justifyContent: "space-evenly" }} mt={5}>
+        <Box   sx={{marginLeft:{md:'95px',lg:'160px'}, marginRight:{md:'95px',lg:'160px'}, display: {xs:'none',sm:'flex'}, justifyContent: "space-evenly" }} mt={5}>
           {items.map((step, index) => (
             <>
               <Box 
@@ -84,7 +84,7 @@ const WhyAparra = () => {
             </>
           ))}
         </Box>
-        <Box   sx={{display: {xs:'block',md:'none'}, }} mt={5}>
+        <Box   sx={{display: {xs:'block',sm:'none'}, }} mt={5}>
           <Box sx={{display:'flex',justifyContent: "space-evenly" }}>
             <Box 
                 sx={{

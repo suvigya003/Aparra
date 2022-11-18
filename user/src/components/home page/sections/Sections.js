@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Sections.css";
+// import "./Sections.css";
 import Slider from "react-slick";
 import { theme } from "../../../theme";
 import TypeMenu from "../interior/TypeMenu";
@@ -449,14 +449,13 @@ const Sections = () => {
                 {Math.abs(activeStep - index) <= 2 ? (
                   <>
                     <Box sx={{ display: "flex" }}>
-                      <Box
-                        className="image"
+                      <Box 
                         sx={{
                           display: "flex",
                           justifyContent: "space-between",
                         }}
-                      >
-                        <Box
+                      > 
+                        <Box 
                           component="img"
                           ml={"1vw"}
                           mr={"1vw"}
@@ -470,17 +469,27 @@ const Sections = () => {
                           src={step.image}
                           alt={step.alt}
                         />
+                        {/* <img src={step.image} className="image" style="width:100%"/> */}
+                        {/* <Box >
+                          <Box>
+                            <Typography sx={{
+                              color:'white'
+                            }}>
+                              {step.title}
+                            </Typography>
+                          </Box>
+                        </Box> */}
                       </Box>
 
                       <Box
-                        className="image"
+                        
                         sx={{
                           display: { xs: "none", md: "flex" },
                           justifyContent: "space-between",
                         }}
                       >
-                        <Box
-                          component="img"
+                        <Box 
+                         component="img"
                           ml={"1vw"}
                           mr={"1vw"}
                           sx={{

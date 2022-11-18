@@ -11,12 +11,14 @@ import {theme} from './theme';
 import HomePage from './components/home page/HomePage';
 import Navbar from './components/navbar/Navbar';
 import Footer from './components/footer/Footer';
+import Abc from './components/Abc'
 
 function App() {
   return (
     <>
     <ThemeProvider theme={theme}>
-      <Navbar/>
+      {/* <Navbar/> */}
+      {/* <Abc/> */}
       <BrowserRouter >
       <Routes>
       <Route  path="/" element={<HomePage/>} />

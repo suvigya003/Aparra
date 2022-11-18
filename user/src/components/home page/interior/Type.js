@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { theme } from "../../../theme";
 import "./Interior.css";
 import TypeMenu from "./TypeMenu";
+import Navbar1 from "../../navbar/Navbar1";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import {
   Card,
@@ -612,7 +613,9 @@ const Type = () => {
       </Modal>
 
       <ThemeProvider theme={theme}>
-      <Box sx={{minHeight:{xs:'23vw', sm:'7.5vw'},bgcolor:'#0002'}}/> 
+      <Navbar1/>
+      <Box sx={{minHeight:{xs:'23vw', sm:'7.5vw'},bgcolor:'transparent'}}/> 
+      
         <Box ml={4} mr={4} mt={0} mb={5}>
           
           <Box mt={1}
