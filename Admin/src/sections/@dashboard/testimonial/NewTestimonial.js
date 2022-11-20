@@ -17,10 +17,11 @@ import {
     FormControlLabel,
   } from '@mui/material';
   import TextField from '@mui/material/TextField';
+  import axios from 'axios';
 
 const NewTestimonial = () => {
 
-    const [testimonial, setTestimonial] = useState({
+    const [testimonials, setTestimonials] = useState({
         name: '',
         message: '',
         designation: '',
@@ -28,12 +29,44 @@ const NewTestimonial = () => {
       });
     
       const handleChange = ({ currentTarget: input }) => {
-        setTestimonial({
-          ...testimonial,
+        setTestimonials({
+          ...testimonials,
           [input.name]: input.value,
         });
-        console.log(testimonial);
+        console.log(testimonials);
       };
+
+      const [image, setImage] = useState();
+
+  const handleImageFile = (e) => {
+    setImage(e.target.files[0], '$$$$');
+    console.log(image);
+  };
+
+  const handleSubmit = async(e) => {
+    e.preventDefault();
+    try{
+      console.log('testimonials', testimonials);
+      console.log('image', image);
+      const formData = new FormData();
+      formData.append('image', image);
+      formData.append('name', testimonials.name);
+      formData.append('message', testimonials.message);
+      formData.append('designation', testimonials.designation);
+      formData.append('videoId', testimonials.videoId);
+      console.log('formData', formData);
+
+      await axios.post(`http://localhost:8080/api/aparra/addTestimonials`, formData).then((res) => {
+        console.log(res);
+      }
+      ).catch((err) => {
+        console.log(err);
+      });
+      alert("Data submitted successfully!!");
+    }catch(error){
+      console.log(error);
+    }
+  }
 
   return (
     <>
@@ -41,7 +74,7 @@ const NewTestimonial = () => {
     <Card>
     <Box p={3}>
             <form 
-            // onSubmit={handleSubmit}
+            onSubmit={handleSubmit}
             >
             <Grid container spacing={3}>
                 <Grid item xs={12} md={6}>
@@ -51,7 +84,7 @@ const NewTestimonial = () => {
                   fullWidth
                   type="text"
                   name="name"
-                  value={testimonial.name}
+                  value={testimonials.name}
                   onChange={handleChange}
                 />
                 </Grid>
@@ -62,7 +95,7 @@ const NewTestimonial = () => {
                   fullWidth
                   type="text"
                   name="designation"
-                  value={testimonial.designation}
+                  value={testimonials.designation}
                   onChange={handleChange}
                 />
                 </Grid>                
@@ -76,12 +109,15 @@ const NewTestimonial = () => {
                   maxRows={4}
                   type="text"
                   name="message"
-                  value={testimonial.message}
+                  value={testimonials.message}
                   onChange={handleChange}
                 />
                 </Grid>
                 <Grid item xs={12} md={6}>
-                <Button variant="outlined" fullWidth component="label" sx={{pt:1.8,pb:1.8}}>
+                <Button variant="outlined" fullWidth component="label" sx={{pt:1.8,pb:1.8}}
+                value = {image}
+                onChange = {(e) => handleImageFile(e)}
+                >
               Upload Pic
               <input
                 hidden
@@ -100,7 +136,7 @@ const NewTestimonial = () => {
                   maxRows={4}
                   type="text"
                   name="videoId"
-                  value={testimonial.videoId}
+                  value={testimonials.videoId}
                   onChange={handleChange}
                 />
                 </Grid>

@@ -1,6 +1,6 @@
 import { filter } from 'lodash';
 import { sentenceCase } from 'change-case';
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 // material
 import {
@@ -18,6 +18,7 @@ import {
   TableContainer,
   TablePagination,
 } from '@mui/material';
+import axios from 'axios';
 // components
 import Page from '../../../components/Page';
 import Label from '../../../components/Label';
@@ -71,6 +72,22 @@ function applySortFilter(array, comparator, query) {
 }
 
 export default function AllTestimonials() {
+
+  const [testimonialTable, setTestimonialTable] = useState([]);
+
+  useEffect(() => {
+    const getTestimonialTableTableData = async () => {
+      try{
+        const {data} = await axios.get('http://localhost:8080/api/aparra/getTestimonials');
+        setTestimonialTable(data);
+        console.log(data);
+      }catch(error){
+        console.log(error);
+      }
+    }
+    getTestimonialTableTableData();
+  }, []);
+
   const [page, setPage] = useState(0);
 
   const [order, setOrder] = useState('asc');
@@ -160,9 +177,9 @@ export default function AllTestimonials() {
                   onSelectAllClick={handleSelectAllClick}
                 />
                 <TableBody>
-                  {filteredUsers.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
-                    const { id, name, role, status, company, avatarUrl, isVerified } = row;
-                    const isItemSelected = selected.indexOf(name) !== -1;
+                  {testimonialTable.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
+                    const { id, name, designation, message, videoId, image,  } = row;
+                    const isItemSelected = selected.indexOf(id) !== -1;
 
                     return (
                       <TableRow
@@ -184,11 +201,11 @@ export default function AllTestimonials() {
                             </Typography>
                           </Stack>
                         </TableCell> */}
-                        <TableCell align="left">{company}</TableCell>
-                        <TableCell align="left">{role}</TableCell>
-                        <TableCell align="left">{role}</TableCell>
-                        <TableCell align="left">{role}</TableCell>
-                        <TableCell align="left">{isVerified ? 'Yes' : 'No'}</TableCell>
+                        <TableCell align="left">{name}</TableCell>
+                        <TableCell align="left">{designation}</TableCell>
+                        <TableCell align="left">{message}</TableCell>
+                        <TableCell align="left"><img src={image} alt="" height={50} /></TableCell>
+                        <TableCell align="left">{videoId}</TableCell>
                         {/* <TableCell align="left">
                           <Label variant="ghost" color={(status === 'banned' && 'error') || 'success'}>
                             {sentenceCase(status)}

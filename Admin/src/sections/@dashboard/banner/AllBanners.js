@@ -1,6 +1,6 @@
 import { filter } from 'lodash';
 import { sentenceCase } from 'change-case';
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 // material
 import {
@@ -18,7 +18,7 @@ import {
   TableContainer,
   TablePagination,
 } from '@mui/material';
-// components
+import axios from 'axios';
 import Page from '../../../components/Page';
 import Label from '../../../components/Label';
 import Scrollbar from '../../../components/Scrollbar';
@@ -31,9 +31,10 @@ import USERLIST from '../../../_mock/user';
 // ----------------------------------------------------------------------
 
 const TABLE_HEAD = [
-  { id: 'tName', label: 'Title', alignRight: false },
-  { id: 'tName', label: 'Subtitle', alignRight: false },
-  { id: 'tName', label: 'Button Text', alignRight: false },
+  { id: 'title', label: 'Title', alignRight: false },
+  { id: 'subtitle', label: 'Subtitle', alignRight: false },
+  { id: 'btnText', label: 'Button Text', alignRight: false },
+  { id: 'link', label: 'Button Link', alignRight: false },
   { id: 'logo', label: 'Image', alignRight: false },
 //   { id: 'role', label: 'Pic', alignRight: false },
 //   { id: 'isVerified', label: 'Message', alignRight: false },
@@ -73,6 +74,23 @@ function applySortFilter(array, comparator, query) {
 }
 
 export default function AllBanners() {
+
+  const [bannerTable, setBannerTable] = useState([]);
+
+  useEffect(() => {
+    const getBannerTableData = async () => {
+      try{
+        const {data} = await axios.get('http://localhost:8080/api/aparra/getBanner');
+        setBannerTable(data);
+        console.log(data);
+      }catch(error){
+        console.log(error);
+      }
+    }
+    getBannerTableData();
+  }, []);
+
+
   const [page, setPage] = useState(0);
 
   const [order, setOrder] = useState('asc');
@@ -162,9 +180,9 @@ export default function AllBanners() {
                   onSelectAllClick={handleSelectAllClick}
                 />
                 <TableBody>
-                  {filteredUsers.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
-                    const { id, name, role, status, company, avatarUrl, isVerified } = row;
-                    const isItemSelected = selected.indexOf(name) !== -1;
+                  {bannerTable.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
+                    const { id, title, subtitle, buttonText, link, image,  } = row;
+                    const isItemSelected = selected.indexOf(id) !== -1;
 
                     return (
                       <TableRow
@@ -176,7 +194,7 @@ export default function AllBanners() {
                         aria-checked={isItemSelected}
                       >
                         <TableCell padding="checkbox">
-                          <Checkbox checked={isItemSelected} onChange={(event) => handleClick(event, name)} />
+                          <Checkbox checked={isItemSelected} onChange={(event) => handleClick(event, id)} />
                         </TableCell>
                         {/* <TableCell component="th" scope="row" padding="none">
                           <Stack direction="row" alignItems="center" spacing={2}>
@@ -186,10 +204,11 @@ export default function AllBanners() {
                             </Typography>
                           </Stack>
                         </TableCell> */}
-                        <TableCell align="left">{company}</TableCell>
-                        <TableCell align="left">{role}</TableCell>
-                        <TableCell align="left">{company}</TableCell>
-                        <TableCell align="left">{role}</TableCell>
+                        <TableCell align="left">{title}</TableCell>
+                        <TableCell align="left">{subtitle}</TableCell>
+                        <TableCell align="left">{buttonText}</TableCell>
+                        <TableCell align="left">{link}</TableCell>
+                        <TableCell align="left"><img src={image} alt="" height={50} /></TableCell>
                         {/* <TableCell align="left">{role}</TableCell>
                         <TableCell align="left">{isVerified ? 'Yes' : 'No'}</TableCell> */}
                         {/* <TableCell align="left">

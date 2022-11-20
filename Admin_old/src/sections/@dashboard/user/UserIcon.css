@@ -1,0 +1,9 @@
+.icon{
+    position: absolute;
+    z-index: 2;
+    height: '5px';
+    width: '5px';
+    border: '1px solid black';
+    right:0;
+    /* left: '160px'; */
+}

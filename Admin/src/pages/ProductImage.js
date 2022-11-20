@@ -21,6 +21,15 @@ import {
     TablePagination,
   } from '@mui/material';
 import ProductImageTabs from '../sections/@dashboard/productImage/ProductImageTabs';
+import NewModularKitchen from '../components/ProductImage/ModularKitchen/NewModularKitchen';
+import TVUnit from '../components/ProductImage/TV Unit/TV Unit';
+import StorageWardrobe from '../components/ProductImage/Storage&Wardrobe/Storage&Wardrobe';
+import CrockeryUnit from '../components/ProductImage/Crockery Unit/CrockeryUnit';
+import KidsBedroom from '../components/ProductImage/KidsBedroom/KidsBedroom';
+import PoojaUnit from '../components/ProductImage/PoojaUnit/PoojaUnit';
+import Doors from '../components/ProductImage/Doors/Doors';
+import VanityVan from '../components/ProductImage/VanityVan/VanityVan';
+import StudyTable from '../components/ProductImage/StudyTable/StudyTable';
 
 
 export default function ProductImage() {
@@ -49,15 +58,15 @@ export default function ProductImage() {
             <Tab label="Vanity Van" value="9" />
           </TabList>
         </Box>
-        <TabPanel value="1"><ProductImageTabs/></TabPanel>
-        <TabPanel value="2"><ProductImageTabs/></TabPanel>
-        <TabPanel value="3"><ProductImageTabs/></TabPanel>
-        <TabPanel value="4"><ProductImageTabs/></TabPanel>
-        <TabPanel value="5"><ProductImageTabs/></TabPanel>
-        <TabPanel value="6"><ProductImageTabs/></TabPanel>
-        <TabPanel value="7"><ProductImageTabs/></TabPanel>
-        <TabPanel value="8"><ProductImageTabs/></TabPanel>
-        <TabPanel value="9"><ProductImageTabs/></TabPanel>
+        <TabPanel value="1"><NewModularKitchen /></TabPanel>
+        <TabPanel value="2"><TVUnit/></TabPanel>
+        <TabPanel value="3"><StorageWardrobe/></TabPanel>
+        <TabPanel value="4"><CrockeryUnit/></TabPanel>
+        <TabPanel value="5"><StudyTable/></TabPanel>
+        <TabPanel value="6"><KidsBedroom/></TabPanel>
+        <TabPanel value="7"><PoojaUnit/></TabPanel>
+        <TabPanel value="8"><Doors/></TabPanel>
+        <TabPanel value="9"><VanityVan/></TabPanel>
       </TabContext>
     </Box>
     </Card>
