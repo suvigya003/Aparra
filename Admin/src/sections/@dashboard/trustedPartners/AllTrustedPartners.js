@@ -1,6 +1,6 @@
 import { filter } from 'lodash';
 import { sentenceCase } from 'change-case';
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 // material
 import {
@@ -18,6 +18,7 @@ import {
   TableContainer,
   TablePagination,
 } from '@mui/material';
+import axios from 'axios'
 // components
 import Page from '../../../components/Page';
 import Label from '../../../components/Label';
@@ -72,20 +73,35 @@ function applySortFilter(array, comparator, query) {
 
 export default function AllTrustedPartners() {
 
-  const TrustedPartnerTableData=[
-    {
-      image:'images/1.webp',
-    },
-    {
-      image:'images/2.webp',
-    },
-    {
-      image:'images/3.webp',
-    },
-    {
-      image:'images/4.webp',
+  const [trustedPartnerTableData, setTrustedPartnerTableData] = useState([]);
+
+  useEffect(() => {
+    const getTrustedPartnerTableData = async () => {
+      try{
+        const {data} = await axios.get('http://localhost:8080/api/aparra/getTrustedPartner');
+        setTrustedPartnerTableData(data);
+        console.log(data);
+      }catch(error){
+        console.log(error);
+      }
     }
-  ];
+    getTrustedPartnerTableData();
+  }, []);
+
+  // const TrustedPartnerTableData=[
+  //   {
+  //     image:'images/1.webp',
+  //   },
+  //   {
+  //     image:'images/2.webp',
+  //   },
+  //   {
+  //     image:'images/3.webp',
+  //   },
+  //   {
+  //     image:'images/4.webp',
+  //   }
+  // ];
 
   const [page, setPage] = useState(0);
 
@@ -176,7 +192,7 @@ export default function AllTrustedPartners() {
                   onSelectAllClick={handleSelectAllClick}
                 />
                 <TableBody>
-                  {TrustedPartnerTableData.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
+                  {trustedPartnerTableData.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
                     const { id, image } = row;
                     const isItemSelected = selected.indexOf(image) !== -1;
 

@@ -122,6 +122,7 @@ const Banner = () => {
     }
     getBannerTableData();
   }, []);
+  console.log(bannerTable);
 
   // const theme = useTheme();
   const [activeStep, setActiveStep] = React.useState(0);
@@ -201,7 +202,7 @@ const Banner = () => {
       >
         <div>
           <Slider {...settings}>
-            {arrayData.map((ele) => (
+            {bannerTable.map((ele) => (
               <>
                 <div style={{position:'relative'}}>
                 <Box
@@ -271,7 +272,7 @@ const Banner = () => {
                             textShadow: "-1px 1px 6px rgba(0, 0, 0, 0.40)",
                           }}
                         >
-                          {ele.button}
+                          {ele.buttonText}
                         </Typography>
                       </Button>
                     </Box>

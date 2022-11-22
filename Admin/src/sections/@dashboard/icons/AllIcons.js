@@ -1,6 +1,6 @@
 import { filter } from 'lodash';
 import { sentenceCase } from 'change-case';
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 // material
 import {
@@ -18,6 +18,7 @@ import {
   TableContainer,
   TablePagination,
 } from '@mui/material';
+import axios from 'axios';
 // components
 import Page from '../../../components/Page';
 import Label from '../../../components/Label';
@@ -72,44 +73,59 @@ function applySortFilter(array, comparator, query) {
 
 export default function AllIcons() {
 
-  const categoryTableData=[
-    {
-      name:'Modular Kitchen',
-      image:'images/kitchen.png',
-    },
-    {
-      name:'TV Unit',
-      image:'images/tv-unit.png',
-    },
-    {
-      name:'Storage & Wardrobe',
-      image:'images/wardrobe.png',
-    },
-    {
-      name:'Crockery Unit',
-      image:'images/crockery.png',
-    },
-    {
-      name:'Study Table',
-      image:'images/study.png',
-    },
-    {
-      name:'Kids Bedroom',
-      image:'images/bunk-bed.png',
-    },
-    {
-      name:'Pooja Unit',
-      image:'images/temple.png',
-    },
-    {
-      name:'Doors',
-      image:'images/door.png',
-    },
-    {
-      name:'Vanity Van',
-      image:'images/van.png',
+  const [categoryTableData, setCategoryTableData] = useState([]);
+
+  useEffect(() => {
+    const getCategoryTableData = async () => {
+      try{
+        const {data} = await axios.get('http://localhost:8080/api/aparra/getCategory');
+        setCategoryTableData(data);
+        console.log(data);
+      }catch(error){
+        console.log(error);
+      }
     }
-  ];
+    getCategoryTableData();
+  }, []);
+
+  // const categoryTableData=[
+  //   {
+  //     name:'Modular Kitchen',
+  //     image:'images/kitchen.png',
+  //   },
+  //   {
+  //     name:'TV Unit',
+  //     image:'images/tv-unit.png',
+  //   },
+  //   {
+  //     name:'Storage & Wardrobe',
+  //     image:'images/wardrobe.png',
+  //   },
+  //   {
+  //     name:'Crockery Unit',
+  //     image:'images/crockery.png',
+  //   },
+  //   {
+  //     name:'Study Table',
+  //     image:'images/study.png',
+  //   },
+  //   {
+  //     name:'Kids Bedroom',
+  //     image:'images/bunk-bed.png',
+  //   },
+  //   {
+  //     name:'Pooja Unit',
+  //     image:'images/temple.png',
+  //   },
+  //   {
+  //     name:'Doors',
+  //     image:'images/door.png',
+  //   },
+  //   {
+  //     name:'Vanity Van',
+  //     image:'images/van.png',
+  //   }
+  // ];
 
   const [page, setPage] = useState(0);
 

@@ -1,8 +1,8 @@
 module.exports = {
     host: process.env.HOST,
-    user: process.env.USER,
+    user: 'root',
     password: process.env.PASSWORD,
-    database: process.env.DB_NAME,
+    database: 'aparra',
     port:process.env.PORT,
     dialect: "mysql",
     pool: {

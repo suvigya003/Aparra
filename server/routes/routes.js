@@ -1,6 +1,7 @@
 module.exports = (app) => {
     const banner = require("../controllers/admin/banner.controller.js");
     const category = require("../controllers/admin/category.controller.js");
+    const trustedPartner = require("../controllers/admin/trustedPartner.controller.js");
     const productImage = require("../controllers/admin/productImage.controller.js");
     const testimonials = require("../controllers/admin/testimonials.controllers");
     const crockeryUnit = require("../controllers/admin/productImage/CrockeryUnit.controller");
@@ -19,6 +20,9 @@ module.exports = (app) => {
   
     router.post("/addCategory", category.create);
     router.get("/getCategory", category.findAll);
+
+    router.post("/addTrustedPartner", trustedPartner.create);
+    router.get("/getTrustedPartner", trustedPartner.findAll);
   
     router.post("/addModularKitchen", productImage.create);
     router.get("/getModularKitchens", productImage.findAll);

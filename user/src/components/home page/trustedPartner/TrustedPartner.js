@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { theme } from "../../../theme";
 import './TrustedPartner.css'
 import TrustedPartnerMenu1 from "./TrustedPartnerMenu1";
@@ -29,7 +29,7 @@ import {
   TablePagination,
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-
+import axios from 'axios';
 import MobileStepper from "@mui/material/MobileStepper";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
@@ -118,6 +118,22 @@ const TrustedPartner = () => {
   const [items3, setItems3] = useState(TrustedPartnerMenu3);
   const [items4, setItems4] = useState(TrustedPartnerMenu4);
   const [items5, setItems5] = useState(TrustedPartnerMenu5);
+
+  const [trustedPartnerData, setTrustedPartnerData] = useState([]);
+
+  useEffect(() => {
+    const getTrustedPartnerData = async () => {
+      try{
+        const {data} = await axios.get('http://localhost:8080/api/aparra/getTrustedPartner');
+        setTrustedPartnerData(data);
+        console.log(data);
+      }catch(error){
+        console.log(error);
+      }
+    }
+    getTrustedPartnerData();
+  }, []);
+
   // const theme = useTheme();
   const [activeStep, setActiveStep] = React.useState(0);
 
@@ -221,7 +237,7 @@ const TrustedPartner = () => {
           >
              <Box>
                     <Slider {...settings}>
-                      {items.map((ele) => (
+                      {trustedPartnerData.map((ele) => (
                         <>
                           <Box sx={{ position: "relative", display:'flex',justifyContent:'center' }}>
                             <img src={ele.image} height={60}

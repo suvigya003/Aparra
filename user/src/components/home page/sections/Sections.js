@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 // import "./Sections.css";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -24,7 +24,7 @@ import {
   TablePagination,
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-
+import axios from 'axios'
 import MobileStepper from "@mui/material/MobileStepper";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
@@ -108,6 +108,21 @@ function SamplePrevArrow(props) {
 
 const Sections = () => {
   const [items, setItems] = useState(TypeMenu);
+
+  const [modularKitchenTable, setModularKitchenTable] = useState([]);
+
+  useEffect(() => {
+    const getModularKitchenTableData = async () => {
+      try{
+        const {data} = await axios.get('http://localhost:8080/api/aparra/getModularKitchens');
+        setModularKitchenTable(data);
+        console.log(data);
+      }catch(error){
+        console.log(error);
+      }
+    }
+    getModularKitchenTableData();
+  }, []);
 
   const settings = {
     //   dots: true,
@@ -229,7 +244,7 @@ const Sections = () => {
           >
             <Box>
               <Slider {...settings}>
-                {items.map((ele) => (
+                {modularKitchenTable.map((ele) => (
                   <>
                     <Box style={{ position: "relative" }}>
                       <img src={ele.image} style={style} />

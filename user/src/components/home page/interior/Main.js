@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React,{useState, useEffect} from "react";
 import "./Interior.css";
 import { BrowserRouter as Router,Routes, Route,Link } from 'react-router-dom';
 import { theme } from "../../../theme";
@@ -23,6 +23,7 @@ import {
   TablePagination,
   // Link,
 } from "@mui/material";
+import axios from 'axios'
 import Navbar from "../../navbar/Navbar";
 // import kitchen from "../../images/kitchen.png";
 // import wardrobe from "../../images/wardrobe.png";
@@ -32,6 +33,22 @@ import Navbar from "../../navbar/Navbar";
 
 const Main = () => {
 const [items, setItems] = useState(Menu);
+
+const [categoryData, setCategoryData] = useState([]);
+
+  useEffect(() => {
+    const getCategoryData = async () => {
+      try{
+        const {data} = await axios.get('http://localhost:8080/api/aparra/getCategory');
+        setCategoryData(data);
+        console.log(data);
+      }catch(error){
+        console.log(error);
+      }
+    }
+    getCategoryData();
+  }, []);
+
   return (
     <>
       <ThemeProvider theme={theme}>
@@ -54,7 +71,7 @@ const [items, setItems] = useState(Menu);
           <Box >
           <Grid container spacing={2}>
             {
-                items.map((ele)=>{
+                categoryData.map((ele)=>{
 return(
     <>
         <Grid item xs={4} md={4}>
@@ -77,7 +94,7 @@ return(
                     fontSize:'14px',
                     fontWeight: 400,
                   }}
-                  >{ele.title}</Typography>
+                  >{ele.name}</Typography>
                 </Box>
                 </Link>                
               </Box>

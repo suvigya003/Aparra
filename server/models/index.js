@@ -19,6 +19,7 @@ db.sequelize = sequelize;
 
 db.banner = require('./admin/banner.model')(sequelize, Sequelize);
 db.category = require('./admin/category.model.js')(sequelize, Sequelize);
+db.trustedPartner = require('./admin/trustedPartner.model.js')(sequelize, Sequelize);
 db.productImage = require('./admin/productImage.model.js')(sequelize, Sequelize);
 db.testimonials = require('./admin/testimonials.model.js')(sequelize, Sequelize);
 db.crockeryUnit = require('./admin/productImage/CrockeryUnit.model.js')(sequelize, Sequelize);

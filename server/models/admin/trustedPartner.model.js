@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-  const Category = sequelize.define("category", {
+  const TrustedPartner = sequelize.define("trustedPartner", {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
@@ -8,9 +8,6 @@ module.exports = (sequelize, DataTypes) => {
     image: {
       type: DataTypes.STRING,
     },
-    name: {
-      type: DataTypes.STRING,
-    },
   });
-  return Category;
+  return TrustedPartner;
 };

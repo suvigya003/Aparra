@@ -1,7 +1,7 @@
 const db = require('../../models');
 const formidable = require('formidable');
 const cloudinary = require('../../configs/cloudinary.config');
-const Category = db.category;
+const TrustedPartner = db.trustedPartner;
 
 exports.create = async (req, res) => {
     try{
@@ -22,7 +22,7 @@ exports.create = async (req, res) => {
 
             cloudinary.uploader.upload(files.image.filepath, (err, result) => {     
                 console.log(result);
-                Category.create({
+                TrustedPartner.create({
                     image: result.secure_url,
                     name: name,
                 }). 
@@ -45,8 +45,8 @@ exports.create = async (req, res) => {
 
 exports.findAll = async (req, res) => {
     try{
-        const category = await Category.findAll();
-        res.send(category);
+        const trustedPartner = await TrustedPartner.findAll();
+        res.send(trustedPartner);
     }catch(error){
         console.log(error);
     }
