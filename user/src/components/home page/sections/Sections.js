@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 // import "./Sections.css";
 import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import { theme } from "../../../theme";
 import TypeMenu from "../interior/TypeMenu";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
@@ -32,8 +34,139 @@ import SwipeableViews from "react-swipeable-views";
 import { autoPlay } from "react-swipeable-views-utils";
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
+function SampleNextArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <>
+      <Box
+        className={className}
+        style={{
+          ...style,
+          display: "block",
+          background: "white",
+          opacity: "70%",
+          zIndex: 10,
+          marginRight: "5vw",
+          height: "45px",
+          width: "45px",
+          borderRadius: "20%",
+        }}
+        onClick={onClick}
+      />
+
+      <img
+        src="images/right-arrow.png"
+        height={35}
+        style={{
+          position: "absolute",
+          left: "87vw",
+          top: "13vh",
+          zIndex: 13,
+        }}
+        onClick={onClick}
+      />
+    </>
+  );
+}
+
+function SamplePrevArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <>
+      <Box
+        className={className}
+        style={{
+          ...style,
+          display: "block",
+          background: "white",
+          opacity: "70%",
+          zIndex: 10,
+          marginLeft: "3vw",
+          height: "45px",
+          width: "45px",
+          borderRadius: "20%",
+
+          // height: '40px',
+          // width: '40px',
+        }}
+        onClick={onClick}
+      />
+      <img
+        src="images/left-arrow.png"
+        height={35}
+        style={{
+          position: "absolute",
+          left: "1.5vw",
+          top: "13vh",
+          zIndex: 13,
+        }}
+        onClick={onClick}
+      />
+    </>
+  );
+}
+
 const Sections = () => {
   const [items, setItems] = useState(TypeMenu);
+
+  const settings = {
+    //   dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    arrows: true,
+    autoplay: true,
+    draggable: true,
+    pauseOnHover: false,
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          initialSlide: 3,
+          // infinite: true,
+          // dots: false
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          initialSlide: 1,
+        },
+      },
+    ],
+    // slickNext,
+    // slickPrev
+  };
+
+  const style = {
+    // display: "block",
+    display: "block",
+    // maxWidth: { md: "22vw" },
+    overflow: "hidden",
+    borderRadius: "8px  8px 8px 8px",
+    // maxHeight: "100vh",
+    width: "90%",
+    // maxWidth: "1600px",
+    objectFit: "cover",
+    // borderRadius:'8px',
+    // margin:'2%'
+  };
+
   // const theme = useTheme();
   const [activeStep, setActiveStep] = React.useState(0);
 
@@ -50,14 +183,6 @@ const Sections = () => {
   };
 
   const maxSteps = items.length;
-
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 3
-  };
 
   return (
     <>
@@ -95,357 +220,34 @@ const Sections = () => {
             </Link>
           </Box>
 
-          {/* <Box sx={{border:'1px solid black'}}>
-        <h2> Multiple items </h2>
-        <Slider {...settings}>
-          <div>
-            <h3>1</h3>
-          </div>
-          <div>
-            <h3>2</h3>
-          </div>
-          <div>
-            <h3>3</h3>
-          </div>
-          <div>
-            <h3>4</h3>
-          </div>
-          <div>
-            <h3>5</h3>
-          </div>
-          <div>
-            <h3>6</h3>
-          </div>
-          <div>
-            <h3>7</h3>
-          </div>
-          <div>
-            <h3>8</h3>
-          </div>
-          <div>
-            <h3>9</h3>
-          </div>
-        </Slider>
-      </Box> */}
-
-
-          {/* <div
-            id="carouselExampleInterval"
-            class="carousel slide"
-            data-bs-ride="carousel"
+          <Box
+            ml={"1vw"}
+            style={{
+              // maxWidth: "1600px",
+              width: "100%",
+            }}
           >
-            <div class="carousel-inner">
-            <div class="carousel-item active" data-bs-interval="2000">
-             <Box sx={{ display: "flex" }}>
-                      <Box
-                        sx={{
-                          display: "flex",
-                        }}
-                      >
-                        <img
-                          src="images/type.jpg"
-                          style={{
-                            marginLeft: "1vw",
-                            marginRight: "1vw",
-                            display: "block",
-                            maxWidth: "22vw",
-                            overflow: "hidden",
-                            width: "100%",
-                            borderRadius: "8px  8px 8px 8px",
-                          }}
-                          class="d-block w-100"
-                          alt="..."
-                        />
-                      </Box>
-                      <Box
-                        sx={{
-                          display: { xs: "none", md: "flex" },
-                        }}
-                      >
-                        <img
-                          src="images/type.jpg"
-                          style={{
-                            marginLeft: "1vw",
-                            marginRight: "1vw",
-                            display: "block",
-                            maxWidth: "22vw",
-                            overflow: "hidden",
-                            width: "100%",
-                            borderRadius: "8px  8px 8px 8px",
-                          }}
-                          class="d-block w-100"
-                          alt="..."
-                        />
-                      </Box>
-                      <Box
-                        sx={{
-                          display: { xs: "none", md: "flex" },
-                        }}
-                      >
-                        <img
-                          src="images/type.jpg"
-                          style={{
-                            marginLeft: "1vw",
-                            marginRight: "1vw",
-                            display: "block",
-                            maxWidth: "22vw",
-                            overflow: "hidden",
-                            width: "100%",
-                            borderRadius: "8px  8px 8px 8px",
-                          }}
-                          class="d-block w-100"
-                          alt="..."
-                        />
-                      </Box>
-                      <Box
-                        sx={{
-                          display: { xs: "none", md: "flex" },
-                        }}
-                      >
-                        <img
-                          src="images/type.jpg"
-                          style={{
-                            marginLeft: "1vw",
-                            marginRight: "1vw",
-                            display: "block",
-                            maxWidth: "22vw",
-                            overflow: "hidden",
-                            width: "100%",
-                            borderRadius: "8px  8px 8px 8px",
-                          }}
-                          class="d-block w-100"
-                          alt="..."
-                        />
-                      </Box>
-                    </Box>
-
-                        </div>
-              {items.map((step, index) => (
-                <>
-                  <div class="carousel-item " data-bs-interval="2000">
-                    <Box sx={{ display: "flex" }}>
-                      <Box
-                        sx={{
-                          display: "flex",
-                        }}
-                      >
-                        <img
-                          src={step.image}
-                          style={{
-                            marginLeft: "1vw",
-                            marginRight: "1vw",
-                            display: "block",
-                            maxWidth: "22vw",
-                            overflow: "hidden",
-                            width: "100%",
-                            borderRadius: "8px  8px 8px 8px",
-                          }}
-                          class="d-block w-100"
-                          alt="..."
-                        />
-                      </Box>
-                      <Box
-                        sx={{
-                          display: { xs: "none", md: "flex" },
-                        }}
-                      >
-                        <img
-                          src={step.image}
-                          style={{
-                            marginLeft: "1vw",
-                            marginRight: "1vw",
-                            display: "block",
-                            maxWidth: "22vw",
-                            overflow: "hidden",
-                            width: "100%",
-                            borderRadius: "8px  8px 8px 8px",
-                          }}
-                          class="d-block w-100"
-                          alt="..."
-                        />
-                      </Box>
-                      <Box
-                        sx={{
-                          display: { xs: "none", md: "flex" },
-                        }}
-                      >
-                        <img
-                          src={step.image}
-                          style={{
-                            marginLeft: "1vw",
-                            marginRight: "1vw",
-                            display: "block",
-                            maxWidth: "22vw",
-                            overflow: "hidden",
-                            width: "100%",
-                            borderRadius: "8px  8px 8px 8px",
-                          }}
-                          class="d-block w-100"
-                          alt="..."
-                        />
-                      </Box>
-                      <Box
-                        sx={{
-                          display: { xs: "none", md: "flex" },
-                        }}
-                      >
-                        <img
-                          src={step.image}
-                          style={{
-                            marginLeft: "1vw",
-                            marginRight: "1vw",
-                            display: "block",
-                            maxWidth: "22vw",
-                            overflow: "hidden",
-                            width: "100%",
-                            borderRadius: "8px  8px 8px 8px",
-                          }}
-                          class="d-block w-100"
-                          alt="..."
-                        />
-                      </Box>
-                    </Box>
-                    
-                  </div>
-                </>
-              ))}
-            </div>
-            <button
-              class="carousel-control-prev"
-              type="button"
-              data-bs-target="#carouselExampleInterval"
-              data-bs-slide="prev"
-            >
-              <span
-                class="carousel-control-prev-icon"
-                aria-hidden="true"
-              ></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button
-              class="carousel-control-next"
-              type="button"
-              data-bs-target="#carouselExampleInterval"
-              data-bs-slide="next"
-            >
-              <span
-                class="carousel-control-next-icon"
-                aria-hidden="true"
-              ></span>
-              <span class="visually-hidden">Next</span>
-            </button>
-          </div> */}
-
-          {/* {items.map((step, index) => (
-              <div key={step.label}>
-                
+            <Box>
+              <Slider {...settings}>
+                {items.map((ele) => (
                   <>
-                    <Box sx={{ display: "flex" }}>
-                      <Box
-                        className="image"
-                        sx={{
-                          display: "flex",
-                          justifyContent: "space-between",
-                        }}
-                      >
-                        <Box
-                          component="img"
-                          ml={"1vw"}
-                          mr={"1vw"}
-                          sx={{
-                            display: "block",
-                            maxWidth: { xs: "90vw", md: "22vw" },
-                            overflow: "hidden",
-                            width: "100%",
-                            borderRadius: "8px  8px 8px 8px",
-                          }}
-                          src={step.image}
-                          alt={step.alt}
-                        />
-                      </Box>
-
-                      <Box
-                        className="image"
-                        sx={{
-                          display: { xs: "none", md: "flex" },
-                          justifyContent: "space-between",
-                        }}
-                      >
-                        <Box
-                          component="img"
-                          ml={"1vw"}
-                          mr={"1vw"}
-                          sx={{
-                            display: "block",
-                            maxWidth: "22vw",
-                            overflow: "hidden",
-                            width: "100%",
-                            borderRadius: "8px  8px 8px 8px",
-                          }}
-                          src={step.image}
-                          alt={step.alt}
-                        />
-                      </Box>
-
-                      <Box
-                        className="image"
-                        sx={{
-                          display: { xs: "none", md: "flex" },
-                          justifyContent: "space-between",
-                        }}
-                      >
-                        <Box
-                          component="img"
-                          ml={"1vw"}
-                          mr={"1vw"}
-                          sx={{
-                            display: "block",
-                            maxWidth: "22vw",
-                            overflow: "hidden",
-                            width: "100%",
-                            borderRadius: "8px  8px 8px 8px",
-                          }}
-                          src={step.image}
-                          alt={step.alt}
-                        />
-                      </Box>
-
-                      <Box
-                        className="image"
-                        sx={{
-                          display: { xs: "none", md: "flex" },
-                          justifyContent: "space-between",
-                        }}
-                      >
-                        <Box
-                          component="img"
-                          ml={"1vw"}
-                          mr={"1vw"}
-                          sx={{
-                            display: "block",
-                            maxWidth: "22vw",
-                            overflow: "hidden",
-                            width: "100%",
-                            borderRadius: "8px  8px 8px 8px",
-                          }}
-                          src={step.image}
-                          alt={step.alt}
-                        />
-                      </Box>
+                    <Box style={{ position: "relative" }}>
+                      <img src={ele.image} style={style} />
                     </Box>
                   </>
-               
-              </div>
-            ))} */}
+                ))}
+              </Slider>
+            </Box>
+          </Box>
 
-          <AutoPlaySwipeableViews
+          {/* <AutoPlaySwipeableViews
             axis={theme.direction === "rtl" ? "x-reverse" : "x"}
             index={activeStep}
             onChangeIndex={handleStepChange}
             enableMouseEvents
           >
             {items.map((step, index) => (
-              <div key={step.label}>
+              <Box key={step.label}>
                 {Math.abs(activeStep - index) <= 2 ? (
                   <>
                     <Box sx={{ display: "flex" }}>
@@ -469,16 +271,6 @@ const Sections = () => {
                           src={step.image}
                           alt={step.alt}
                         />
-                        {/* <img src={step.image} className="image" style="width:100%"/> */}
-                        {/* <Box >
-                          <Box>
-                            <Typography sx={{
-                              color:'white'
-                            }}>
-                              {step.title}
-                            </Typography>
-                          </Box>
-                        </Box> */}
                       </Box>
 
                       <Box
@@ -552,9 +344,9 @@ const Sections = () => {
                     </Box>
                   </>
                 ) : null}
-              </div>
+              </Box>
             ))}
-          </AutoPlaySwipeableViews>
+          </AutoPlaySwipeableViews> */}
           {/* <MobileStepper
             variant="none"
             steps={maxSteps}

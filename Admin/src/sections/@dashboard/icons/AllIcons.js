@@ -71,6 +71,46 @@ function applySortFilter(array, comparator, query) {
 }
 
 export default function AllIcons() {
+
+  const categoryTableData=[
+    {
+      name:'Modular Kitchen',
+      image:'images/kitchen.png',
+    },
+    {
+      name:'TV Unit',
+      image:'images/tv-unit.png',
+    },
+    {
+      name:'Storage & Wardrobe',
+      image:'images/wardrobe.png',
+    },
+    {
+      name:'Crockery Unit',
+      image:'images/crockery.png',
+    },
+    {
+      name:'Study Table',
+      image:'images/study.png',
+    },
+    {
+      name:'Kids Bedroom',
+      image:'images/bunk-bed.png',
+    },
+    {
+      name:'Pooja Unit',
+      image:'images/temple.png',
+    },
+    {
+      name:'Doors',
+      image:'images/door.png',
+    },
+    {
+      name:'Vanity Van',
+      image:'images/van.png',
+    }
+  ];
+
   const [page, setPage] = useState(0);
 
   const [order, setOrder] = useState('asc');
@@ -160,8 +200,8 @@ export default function AllIcons() {
                   onSelectAllClick={handleSelectAllClick}
                 />
                 <TableBody>
-                  {filteredUsers.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
-                    const { id, name, role, status, company, avatarUrl, isVerified } = row;
+                  {categoryTableData.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
+                    const { id, name, image,} = row;
                     const isItemSelected = selected.indexOf(name) !== -1;
 
                     return (
@@ -184,8 +224,8 @@ export default function AllIcons() {
                             </Typography>
                           </Stack>
                         </TableCell> */}
-                        <TableCell align="left">{company}</TableCell>
-                        <TableCell align="left">{role}</TableCell>
+                        <TableCell align="left">{name}</TableCell>
+                        <TableCell align="center"><img src={image} alt="" height={50} /></TableCell>
                         {/* <TableCell align="left">{role}</TableCell>
                         <TableCell align="left">{isVerified ? 'Yes' : 'No'}</TableCell> */}
                         {/* <TableCell align="left">

@@ -12,6 +12,7 @@ import HomePage from './components/home page/HomePage';
 import Navbar from './components/navbar/Navbar';
 import Footer from './components/footer/Footer';
 import Abc from './components/Abc'
+import Trial from './components/Trial'
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
     <ThemeProvider theme={theme}>
       {/* <Navbar/> */}
       {/* <Abc/> */}
+      {/* <Trial/> */}
       <BrowserRouter >
       <Routes>
       <Route  path="/" element={<HomePage/>} />

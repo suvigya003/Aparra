@@ -19,6 +19,16 @@
     display: none;
 }
 
+.slick-arrow.slick-prev:before, .slick-arrow.slick-next:before {
+    font-family: 'slick';
+    font-size: 20px;
+    line-height: 1;
+    opacity: .75;
+    color: white;
+    -webkit-font-smoothing: antialiased;
+    display:'none';
+}
+
 /* .bannerAnimation{
     transform: scale(2, 2);
 } */

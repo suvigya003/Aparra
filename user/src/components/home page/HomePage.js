@@ -14,7 +14,7 @@ const HomePage = () => {
         <Banner/>
         <Main/>
         <Sections/>
-        <Testimonials/>
+        {/* <Testimonials/> */}
         <WhyAparra/>
         <TrustedPartner/>        
     </>

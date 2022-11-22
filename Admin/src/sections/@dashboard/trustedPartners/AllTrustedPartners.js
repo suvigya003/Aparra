@@ -31,7 +31,7 @@ import USERLIST from '../../../_mock/user';
 // ----------------------------------------------------------------------
 
 const TABLE_HEAD = [
-  { id: 'tName', label: 'Name', alignRight: false },
+  // { id: 'tName', label: 'Name', alignRight: false },
   { id: 'logo', label: 'Logo', alignRight: false },
 //   { id: 'role', label: 'Pic', alignRight: false },
 //   { id: 'isVerified', label: 'Message', alignRight: false },
@@ -71,6 +71,22 @@ function applySortFilter(array, comparator, query) {
 }
 
 export default function AllTrustedPartners() {
+
+  const TrustedPartnerTableData=[
+    {
+      image:'images/1.webp',
+    },
+    {
+      image:'images/2.webp',
+    },
+    {
+      image:'images/3.webp',
+    },
+    {
+      image:'images/4.webp',
+    }
+  ];
+
   const [page, setPage] = useState(0);
 
   const [order, setOrder] = useState('asc');
@@ -160,9 +176,9 @@ export default function AllTrustedPartners() {
                   onSelectAllClick={handleSelectAllClick}
                 />
                 <TableBody>
-                  {filteredUsers.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
-                    const { id, name, role, status, company, avatarUrl, isVerified } = row;
-                    const isItemSelected = selected.indexOf(name) !== -1;
+                  {TrustedPartnerTableData.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
+                    const { id, image } = row;
+                    const isItemSelected = selected.indexOf(image) !== -1;
 
                     return (
                       <TableRow
@@ -174,7 +190,7 @@ export default function AllTrustedPartners() {
                         aria-checked={isItemSelected}
                       >
                         <TableCell padding="checkbox">
-                          <Checkbox checked={isItemSelected} onChange={(event) => handleClick(event, name)} />
+                          <Checkbox checked={isItemSelected} onChange={(event) => handleClick(event, image)} />
                         </TableCell>
                         {/* <TableCell component="th" scope="row" padding="none">
                           <Stack direction="row" alignItems="center" spacing={2}>
@@ -184,8 +200,8 @@ export default function AllTrustedPartners() {
                             </Typography>
                           </Stack>
                         </TableCell> */}
-                        <TableCell align="left">{company}</TableCell>
-                        <TableCell align="left">{role}</TableCell>
+                        <TableCell align="center"><img src={image} alt="" height={50} /></TableCell>
+                        {/* <TableCell align="left">{role}</TableCell> */}
                         {/* <TableCell align="left">{role}</TableCell>
                         <TableCell align="left">{isVerified ? 'Yes' : 'No'}</TableCell> */}
                         {/* <TableCell align="left">
