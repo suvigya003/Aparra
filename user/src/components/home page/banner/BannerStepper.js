@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { theme } from "../../../theme";
-import Menu from "../interior/Menu";
+import CategoryMenu from "../category/CategoryMenu";
 import {
   Card,
   Box,
@@ -28,7 +28,7 @@ import { autoPlay } from "react-swipeable-views-utils";
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 const BannerStepper = () => {
-  const [items, setItems] = useState(Menu);
+  const [items, setItems] = useState(CategoryMenu);
   const [activeStep, setActiveStep] = React.useState(0);
 
   const handleNext = () => {

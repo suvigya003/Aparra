@@ -303,7 +303,6 @@ const ProductImageTabs = () => {
             </Box> */}
             <Box>
             <Box mt={3} ml={-3} mr={-3}>
-            <Container>
         {/* <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
           <Typography variant="h4" gutterBottom>
             User
@@ -393,7 +392,6 @@ const ProductImageTabs = () => {
             onPageChange={handleChangePage}
             onRowsPerPageChange={handleChangeRowsPerPage}
           />
-      </Container>
           </Box>
             </Box>
           

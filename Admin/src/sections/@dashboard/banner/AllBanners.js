@@ -4,6 +4,7 @@ import { useState,useEffect } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 // material
 import {
+  Box,
   Card,
   Table,
   Stack,
@@ -153,17 +154,7 @@ export default function AllBanners() {
   const isUserNotFound = filteredUsers.length === 0;
 
   return (
-    <Page title="User">
-      <Container>
-        {/* <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
-          <Typography variant="h4" gutterBottom>
-            User
-          </Typography>
-          <Button variant="contained" component={RouterLink} to="#" startIcon={<Iconify icon="eva:plus-fill" />}>
-            New User
-          </Button>
-        </Stack> */}
-
+        <Box m={3}>
         <Card>
           <UserListToolbar numSelected={selected.length} filterName={filterName} onFilterName={handleFilterByName} />
 
@@ -253,7 +244,6 @@ export default function AllBanners() {
             onRowsPerPageChange={handleChangeRowsPerPage}
           />
         </Card>
-      </Container>
-    </Page>
+        </Box>
   );
 }

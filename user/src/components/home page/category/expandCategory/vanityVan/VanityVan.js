@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { theme } from "../../../theme";
-import "./Interior.css";
-import TypeMenu from "./TypeMenu";
-import Navbar1 from "../../navbar/Navbar1";
+import { theme } from "../../../../../theme";
+import "../../Interior.css";
+import TypeMenu from "../../TypeMenu";
+import Navbar1 from "../../../../navbar/Navbar1";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import {
   Card,
@@ -26,7 +26,7 @@ import {
 // import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded';
 import Modal from "@mui/material/Modal";
 import { borderRadius } from "@mui/system";
-import TypeModal from "./TypeModal";
+import TypeModal from "../../TypeModal";
 import MobileStepper from "@mui/material/MobileStepper";
 import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
@@ -72,7 +72,7 @@ const style = {
   // pl:0
 };
 
-const Type = () => {
+const VanityVan = () => {
   const [items, setItems] = useState(TypeMenu);
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
@@ -969,4 +969,4 @@ const Type = () => {
   );
 };
 
-export default Type;
+export default VanityVan;

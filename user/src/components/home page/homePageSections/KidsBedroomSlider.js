@@ -1,10 +1,10 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 // import "./Sections.css";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { theme } from "../../../theme";
-import TypeMenu from "../interior/TypeMenu";
+import TypeMenu from "../category/TypeMenu";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import {
   Card,
@@ -24,7 +24,7 @@ import {
   TablePagination,
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-import axios from 'axios'
+import axios from "axios";
 import MobileStepper from "@mui/material/MobileStepper";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
@@ -106,21 +106,23 @@ function SamplePrevArrow(props) {
   );
 }
 
-const Sections = () => {
+const KidsBedroomSlider = () => {
   const [items, setItems] = useState(TypeMenu);
 
   const [modularKitchenTable, setModularKitchenTable] = useState([]);
 
   useEffect(() => {
     const getModularKitchenTableData = async () => {
-      try{
-        const {data} = await axios.get('http://localhost:8080/api/aparra/getModularKitchens');
+      try {
+        const { data } = await axios.get(
+          "http://localhost:8080/api/aparra/getModularKitchens"
+        );
         setModularKitchenTable(data);
         console.log(data);
-      }catch(error){
+      } catch (error) {
         console.log(error);
       }
-    }
+    };
     getModularKitchenTableData();
   }, []);
 
@@ -210,11 +212,11 @@ const Sections = () => {
                 fontSize: theme.typography.h7,
               }}
             >
-              Best Selling Kitchens
+              Best Selling Kids Bedroom
             </Typography>
             <Link
               style={{ textDecoration: "none", color: "inherit" }}
-              to="/type"
+              to="/kidsBedroom"
             >
               <Button
                 variant="text"
@@ -254,155 +256,10 @@ const Sections = () => {
               </Slider>
             </Box>
           </Box>
-
-          {/* <AutoPlaySwipeableViews
-            axis={theme.direction === "rtl" ? "x-reverse" : "x"}
-            index={activeStep}
-            onChangeIndex={handleStepChange}
-            enableMouseEvents
-          >
-            {items.map((step, index) => (
-              <Box key={step.label}>
-                {Math.abs(activeStep - index) <= 2 ? (
-                  <>
-                    <Box sx={{ display: "flex" }}>
-                      <Box 
-                        sx={{
-                          display: "flex",
-                          justifyContent: "space-between",
-                        }}
-                      > 
-                        <Box 
-                          component="img"
-                          ml={"1vw"}
-                          mr={"1vw"}
-                          sx={{
-                            display: "block",
-                            maxWidth: { xs: "90vw", md: "22vw" },
-                            overflow: "hidden",
-                            width: "100%",
-                            borderRadius: "8px  8px 8px 8px",
-                          }}
-                          src={step.image}
-                          alt={step.alt}
-                        />
-                      </Box>
-
-                      <Box
-                        
-                        sx={{
-                          display: { xs: "none", md: "flex" },
-                          justifyContent: "space-between",
-                        }}
-                      >
-                        <Box 
-                         component="img"
-                          ml={"1vw"}
-                          mr={"1vw"}
-                          sx={{
-                            display: "block",
-                            maxWidth: "22vw",
-                            overflow: "hidden",
-                            width: "100%",
-                            borderRadius: "8px  8px 8px 8px",
-                          }}
-                          src={step.image}
-                          alt={step.alt}
-                        />
-                      </Box>
-
-                      <Box
-                        className="image"
-                        sx={{
-                          display: { xs: "none", md: "flex" },
-                          justifyContent: "space-between",
-                        }}
-                      >
-                        <Box
-                          component="img"
-                          ml={"1vw"}
-                          mr={"1vw"}
-                          sx={{
-                            display: "block",
-                            maxWidth: "22vw",
-                            overflow: "hidden",
-                            width: "100%",
-                            borderRadius: "8px  8px 8px 8px",
-                          }}
-                          src={step.image}
-                          alt={step.alt}
-                        />
-                      </Box>
-
-                      <Box
-                        className="image"
-                        sx={{
-                          display: { xs: "none", md: "flex" },
-                          justifyContent: "space-between",
-                        }}
-                      >
-                        <Box
-                          component="img"
-                          ml={"1vw"}
-                          mr={"1vw"}
-                          sx={{
-                            display: "block",
-                            maxWidth: "22vw",
-                            overflow: "hidden",
-                            width: "100%",
-                            borderRadius: "8px  8px 8px 8px",
-                          }}
-                          src={step.image}
-                          alt={step.alt}
-                        />
-                      </Box>
-                    </Box>
-                  </>
-                ) : null}
-              </Box>
-            ))}
-          </AutoPlaySwipeableViews> */}
-          {/* <MobileStepper
-            variant="none"
-            steps={maxSteps}
-            position="static"
-            activeStep={activeStep}
-            // sx={{
-            //   display:'none'
-            // }}
-            nextButton={
-              <Button
-                size="small"
-                onClick={handleNext}
-                disabled={activeStep === maxSteps - 1}
-              >
-                Next
-                {theme.direction === "rtl" ? (
-                  <KeyboardArrowLeft />
-                ) : (
-                  <KeyboardArrowRight />
-                )}
-              </Button>
-            }
-            backButton={
-              <Button
-                size="small"
-                onClick={handleBack}
-                disabled={activeStep === 0}
-              >
-                {theme.direction === "rtl" ? (
-                  <KeyboardArrowRight />
-                ) : (
-                  <KeyboardArrowLeft />
-                )}
-                Back
-              </Button>
-            }
-          /> */}
         </Box>
       </ThemeProvider>
     </>
   );
 };
 
-export default Sections;
+export default KidsBedroomSlider;

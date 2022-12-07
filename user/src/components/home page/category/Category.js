@@ -2,7 +2,7 @@ import React,{useState, useEffect} from "react";
 import "./Interior.css";
 import { BrowserRouter as Router,Routes, Route,Link } from 'react-router-dom';
 import { theme } from "../../../theme";
-import Menu from './Menu'
+import Menu from './CategoryMenu'
 // import {CssBaseline} from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import {
@@ -76,7 +76,9 @@ return(
     <>
         <Grid item xs={4} md={4}>
               <Box mb={'2vw'} sx={{}}>
-                <Link style={{textDecoration:'none', color:'inherit'}} to="/type">
+                <Link style={{textDecoration:'none', color:'inherit'}} 
+                to="/modularKitchen"
+                >
                 <Box mb={'1vw'} sx={{ display: "flex", justifyContent: "center", }}>
                 {/* <img height="50px" width="50px"
                  src={ele.image} alt={ele.alt} /> */}

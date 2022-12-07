@@ -1,6 +1,6 @@
 import React, { useState,useEffect } from "react";
 import { theme } from "../../../theme";
-import "../interior/Interior.css";
+import "../category/Interior.css";
 import BannerMenu from "./BannerMenu";
 import BannerStepper from "./BannerStepper";
 import Slider from "react-slick";
